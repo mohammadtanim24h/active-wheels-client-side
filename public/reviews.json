@@ -1,0 +1,23 @@
+[
+    {
+        "_id": "124e13b9-2d54-4b2f-a74d-a77b362d6ead",
+        "name": "John Travolta",
+        "rating": 5,
+        "reviewText": "I am blown away by their service. They shipped my products fast. Also, my products were intact. Certainly recommended.",
+        "img": "https://api.lorem.space/image/face?hash=92310"
+    },
+    {
+        "_id": "13cbc7ed-a61b-4883-9d42-82d7d8642b86",
+        "name": "Ricardo Milos",
+        "rating": 5,
+        "reviewText": "I usually don't buy from manufacturers I don't know of. But anyways I gave them a try. And they amazed me with their service. Their after-sales service is really good in my opinion.",
+        "img": "https://api.lorem.space/image/face?hash=92310"
+    },
+    {
+        "_id": "307f166f-1d04-4573-bc37-2f461ea9d4f7",
+        "name": "Jonathan Banks",
+        "rating": 5,
+        "reviewText": "I am an old customer of them. I have been buying car parts from them since the 2010s. I never got faulty parts whatsoever. Definitely worth a try!",
+        "img": "https://api.lorem.space/image/face?hash=92310"
+    }
+]
