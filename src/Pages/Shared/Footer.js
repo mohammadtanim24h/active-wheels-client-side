@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 text-base-content flex justify-around">
+            <footer className="footer p-10 text-base-content flex flex-col md:flex-row justify-around">
                 <div>
                     <span className="footer-title">Services</span>
                     <a className="link link-hover">Branding</a>
@@ -26,7 +26,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <span className="footer-title">Newsletter</span>
-                    <div className="form-control w-80">
+                    <div className="form-control w-72 md:w-80">
                         <label className="label">
                             <span className="label-text">
                                 Enter your email address

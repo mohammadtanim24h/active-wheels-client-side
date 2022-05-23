@@ -9,13 +9,13 @@ import './BusinessSummary.css';
 const BusinessSummary = () => {
     return (
         <div className="text-center my-20">
-            <h2 className="text-4xl mt-12 mb-3 text-slate-600 font-medium">
+            <h2 className="text-3xl md:text-4xl mt-12 mb-3 text-slate-600 font-medium">
                 Business Summary
             </h2>
-            <h3 className="text-3xl text-blue-500 font-bold mb-3">
+            <h3 className="text-3xl text-blue-500 font-medium md:font-bold mb-3">
                 Trusted By Millions of People
             </h3>
-            <div className="stats shadow">
+            <div className="stats stats-vertical lg:stats-horizontal shadow">
                 <div className="stat">
                     <div className="stat-figure text-blue-500">
                         <BsFlagFill className="text-3xl"></BsFlagFill>
@@ -51,14 +51,14 @@ const BusinessSummary = () => {
                     <div className="stat-desc text-base mb-1">↗︎ 122M (10%)</div>
                 </div>
             </div>
-            <div className="w-3/4 mx-auto mt-8 p-8 rounded-lg flex justify-between question-div">
+            <div className="w-3/4 mx-auto mt-8 p-8 rounded-lg flex flex-col md:flex-row justify-between question-div">
                 <div className="text-left ">
                     <h2 className="text-xl font-bold">Any questions about us or have any doubts?</h2>
                     <p className="text-base mt-1 font-medium">Let us hear your thoughts.</p>
                 </div>
-                <div>
-                    <button className="btn btn-primary mx-1 text-white">Contact Us</button>
-                    <button className="btn btn-neutral mx-1 text-white">Our Policies</button>
+                <div className="mt-4 md:mt-0">
+                    <button className="btn btn-primary w-full md:w-max my-1 md:my-0 mx-1 text-white">Contact Us</button>
+                    <button className="btn btn-neutral w-full md:w-max my-1 md:my-0 mx-1 text-white">Our Policies</button>
                 </div>
             </div>
         </div>
