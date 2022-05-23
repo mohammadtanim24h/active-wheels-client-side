@@ -1,0 +1,7 @@
+.banner-section {
+    background-image: url('../../../assets/images/close-up-hands.jpg');
+    background-color: rgba(0, 0, 0, 0.7);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: cover;
+}
