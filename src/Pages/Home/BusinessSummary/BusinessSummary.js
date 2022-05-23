@@ -3,6 +3,7 @@ import { BsFlagFill } from "react-icons/bs";
 import { BsPeopleFill } from "react-icons/bs";
 import { BsFillEmojiSmileFill } from "react-icons/bs";
 import { BsCurrencyDollar } from "react-icons/bs";
+import './BusinessSummary.css';
 
 
 const BusinessSummary = () => {
@@ -46,8 +47,18 @@ const BusinessSummary = () => {
                         <BsCurrencyDollar className="text-3xl"></BsCurrencyDollar>
                     </div>
                     <div class="stat-title text-base mb-1">Annual Revenue</div>
-                    <div class="stat-value mb-1">185M+</div>
-                    <div class="stat-desc text-base mb-1">↗︎ 172M (10%)</div>
+                    <div class="stat-value mb-1">134M+</div>
+                    <div class="stat-desc text-base mb-1">↗︎ 122M (10%)</div>
+                </div>
+            </div>
+            <div className="w-3/4 mx-auto mt-8 p-8 rounded-lg flex justify-between question-div">
+                <div className="text-left ">
+                    <h2 className="text-xl font-bold">Any questions about us or have any doubts?</h2>
+                    <p className="text-base mt-1 font-medium">Let us hear your thoughts.</p>
+                </div>
+                <div>
+                    <button className="btn btn-primary mx-1 text-white">Contact Us</button>
+                    <button className="btn btn-neutral mx-1 text-white">Our Policies</button>
                 </div>
             </div>
         </div>
