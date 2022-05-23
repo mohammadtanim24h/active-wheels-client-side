@@ -1,0 +1,56 @@
+[
+    {
+        "_id": "124e13b9-2d54-4b2f-a74d-a77b362d6ead",
+        "name": "Steering Wheel",
+        "price": 220,
+        "description": "The steering wheel is used for changing the direction of the vehicle. The major requirements in any steering mechanism are that it should be precise and easy to handle and that the front wheels should have a tendency to return to the straight-ahead position after a turn.",
+        "minOrderQuantity": 1000,
+        "availableQuantity": 5000,
+        "img": "https://i.ibb.co/QdL3tbp/steering-wheel.png"
+    },
+    {
+        "_id": "13cbc7ed-a61b-4883-9d42-82d7d8642b86",
+        "name": "Brakes",
+        "price": 190,
+        "description": "Brakes are required for slowing down or stopping a moving vehicle. The braking system is essential for the safety of passengers, and passers-by on roads. The braking system may be operated mechanically or hydraulically. 95 percent of the braking systems in use today are of the hydraulic type.",
+        "minOrderQuantity": 1000,
+        "availableQuantity": 5000,
+        "img": "https://i.ibb.co/SxyrNSF/brakes.png"
+    },
+    {
+        "_id": "307f166f-1d04-4573-bc37-2f461ea9d4f7",
+        "name": "Tyre",
+        "price": 60,
+        "description": "Every car has four wheels. The black part of the wheel, which is made out of rubber with air inside, is called a tyre. They're where your tires are actually attached. The inner part of your car tyre is attached to the rim. You'll often hear people use “rims,” and “wheels,” interchangeably, whereas decorative wheels are called rims. Some people may also say “tyre,” when they actually mean wheel.",
+        "minOrderQuantity": 1000,
+        "availableQuantity": 5000,
+        "img": "https://i.ibb.co/HBsSzcJ/tyre.png"
+    },
+    {
+        "_id": "4bf9798f-63bc-4a83-b0c6-6a3b816fe922",
+        "name": "Speedometer",
+        "price": 320,
+        "description": "A speedometer is an instrument that indicates the speed of a vehicle. A speedometer or a speed meter is a gauge that measures and displays the instantaneous speed of a vehicle. Now universally fitted to motor vehicles, they started to be available as options in the early 20th century, and as standard equipment from about 1910 onwards.",
+        "minOrderQuantity": 1000,
+        "availableQuantity": 5000,
+        "img": "https://i.ibb.co/55GfGN3/speedometer.png"
+    },
+    {
+        "_id": "9496d72b-04ec-41f8-9bc3-0a7c9697be8e",
+        "name": "Headlights",
+        "price": 280,
+        "description": "A headlamp is a lamp attached to the front of a vehicle to illuminate the road ahead. Headlamps are also often called headlights, but in the most precise usage, headlamp is the term for the device itself and headlight is the term for the beam of light produced and distributed by the device.",
+        "minOrderQuantity": 1000,
+        "availableQuantity": 5000,
+        "img": "https://i.ibb.co/qg440LR/headlights.png"
+    },
+    {
+        "_id": "6e5593d3-557b-43cf-8dab-a5140faedfb0",
+        "name": "Side Mirror",
+        "price": 90,
+        "description": "A side-view mirror (or side mirror), also known as a wing mirror, is a mirror placed on the exterior of motor vehicles for the purposes of helping the driver see areas behind and to the sides of the vehicle, outside the driver's peripheral vision (in the blind spot).",
+        "minOrderQuantity": 1000,
+        "availableQuantity": 5000,
+        "img": "https://i.ibb.co/0qgv6Dd/side-mirror.png"
+    }
+]
