@@ -15,40 +15,40 @@ const BusinessSummary = () => {
             <h3 className="text-3xl text-blue-500 font-bold mb-3">
                 Trusted By Millions of People
             </h3>
-            <div class="stats shadow">
-                <div class="stat">
-                    <div class="stat-figure text-blue-500">
+            <div className="stats shadow">
+                <div className="stat">
+                    <div className="stat-figure text-blue-500">
                         <BsFlagFill className="text-3xl"></BsFlagFill>
                     </div>
-                    <div class="stat-title text-base mb-1">Countries</div>
-                    <div class="stat-value mb-1">31</div>
-                    <div class="stat-desc text-base mb-1">1969 - Present</div>
+                    <div className="stat-title text-base mb-1">Countries</div>
+                    <div className="stat-value mb-1">31</div>
+                    <div className="stat-desc text-base mb-1">1969 - Present</div>
                 </div>
 
-                <div class="stat">
-                    <div class="stat-figure text-blue-500">
+                <div className="stat">
+                    <div className="stat-figure text-blue-500">
                         <BsPeopleFill className="text-3xl"></BsPeopleFill>
                     </div>
-                    <div class="stat-title text-base mb-1">New Customers</div>
-                    <div class="stat-value mb-1">463</div>
-                    <div class="stat-desc text-base mb-1">↗︎ 380 (22%)</div>
+                    <div className="stat-title text-base mb-1">New Customers</div>
+                    <div className="stat-value mb-1">463</div>
+                    <div className="stat-desc text-base mb-1">↗︎ 380 (22%)</div>
                 </div>
 
-                <div class="stat">
-                    <div class="stat-figure text-blue-500">
+                <div className="stat">
+                    <div className="stat-figure text-blue-500">
                         <BsFillEmojiSmileFill className="text-3xl"></BsFillEmojiSmileFill>
                     </div>
-                    <div class="stat-title text-base mb-1">Satisfied Clients</div>
-                    <div class="stat-value mb-1">379+</div>
-                    <div class="stat-desc text-base mb-1">↗︎ 356 (14%)</div>
+                    <div className="stat-title text-base mb-1">Satisfied Clients</div>
+                    <div className="stat-value mb-1">379+</div>
+                    <div className="stat-desc text-base mb-1">↗︎ 356 (14%)</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-figure text-blue-500">
+                <div className="stat">
+                    <div className="stat-figure text-blue-500">
                         <BsCurrencyDollar className="text-3xl"></BsCurrencyDollar>
                     </div>
-                    <div class="stat-title text-base mb-1">Annual Revenue</div>
-                    <div class="stat-value mb-1">134M+</div>
-                    <div class="stat-desc text-base mb-1">↗︎ 122M (10%)</div>
+                    <div className="stat-title text-base mb-1">Annual Revenue</div>
+                    <div className="stat-value mb-1">134M+</div>
+                    <div className="stat-desc text-base mb-1">↗︎ 122M (10%)</div>
                 </div>
             </div>
             <div className="w-3/4 mx-auto mt-8 p-8 rounded-lg flex justify-between question-div">
