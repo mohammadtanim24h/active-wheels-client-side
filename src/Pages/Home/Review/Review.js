@@ -14,7 +14,8 @@ const Review = ({ review }) => {
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{name}</h2>
                     <p>
-                        Rating: {rating} <AiFillStar className="inline mb-1 text-[#FFC400]"></AiFillStar>
+                        Rating: {rating}{" "}
+                        <AiFillStar className="inline mb-1 text-[#FFC400]"></AiFillStar>
                         <AiFillStar className="inline mb-1 text-[#FFC400]"></AiFillStar>
                         <AiFillStar className="inline mb-1 text-[#FFC400]"></AiFillStar>
                         <AiFillStar className="inline mb-1 text-[#FFC400]"></AiFillStar>
