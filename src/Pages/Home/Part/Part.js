@@ -13,7 +13,7 @@ const Part = ({ part }) => {
         <div className="card lg:card-side bg-base-100 shadow-xl">
             <figure>
                 <img
-                    className="md:h-full md:w-80 object-cover"
+                    className="md:h-full md:w-[350px] object-cover"
                     src={img}
                     alt="car-part"
                 />
