@@ -1,4 +1,9 @@
 import React from "react";
+import { BsFlagFill } from "react-icons/bs";
+import { BsPeopleFill } from "react-icons/bs";
+import { BsFillEmojiSmileFill } from "react-icons/bs";
+import { BsCurrencyDollar } from "react-icons/bs";
+
 
 const BusinessSummary = () => {
     return (
@@ -12,65 +17,37 @@ const BusinessSummary = () => {
             <div class="stats shadow">
                 <div class="stat">
                     <div class="stat-figure text-blue-500">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            class="inline-block w-8 h-8 stroke-current"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                            ></path>
-                        </svg>
+                        <BsFlagFill className="text-3xl"></BsFlagFill>
                     </div>
-                    <div class="stat-title">71 Countries</div>
-                    <div class="stat-value">31K</div>
-                    <div class="stat-desc">Jan 1st - Feb 1st</div>
+                    <div class="stat-title text-base mb-1">Countries</div>
+                    <div class="stat-value mb-1">31</div>
+                    <div class="stat-desc text-base mb-1">1969 - Present</div>
                 </div>
 
                 <div class="stat">
                     <div class="stat-figure text-blue-500">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            class="inline-block w-8 h-8 stroke-current"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                            ></path>
-                        </svg>
+                        <BsPeopleFill className="text-3xl"></BsPeopleFill>
                     </div>
-                    <div class="stat-title">New Users</div>
-                    <div class="stat-value">4,200</div>
-                    <div class="stat-desc">↗︎ 400 (22%)</div>
+                    <div class="stat-title text-base mb-1">New Customers</div>
+                    <div class="stat-value mb-1">463</div>
+                    <div class="stat-desc text-base mb-1">↗︎ 380 (22%)</div>
                 </div>
 
                 <div class="stat">
                     <div class="stat-figure text-blue-500">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            class="inline-block w-8 h-8 stroke-current"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
-                            ></path>
-                        </svg>
+                        <BsFillEmojiSmileFill className="text-3xl"></BsFillEmojiSmileFill>
                     </div>
-                    <div class="stat-title">New Registers</div>
-                    <div class="stat-value">1,200</div>
-                    <div class="stat-desc">↘︎ 90 (14%)</div>
+                    <div class="stat-title text-base mb-1">Satisfied Clients</div>
+                    <div class="stat-value mb-1">379+</div>
+                    <div class="stat-desc text-base mb-1">↗︎ 356 (14%)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-figure text-blue-500">
+                        <BsCurrencyDollar className="text-3xl"></BsCurrencyDollar>
+                    </div>
+                    <div class="stat-title text-base mb-1">Annual Revenue</div>
+                    <div class="stat-value mb-1">185M+</div>
+                    <div class="stat-desc text-base mb-1">↗︎ 172M (10%)</div>
                 </div>
             </div>
         </div>
