@@ -9,14 +9,14 @@ const Reviews = () => {
             .then((data) => setReviews(data));
     }, []);
     return (
-        <div className="my-12">
-            <h2 className="text-slate-600 text-2xl text-center font-bold">
+        <div className="my-16">
+            <h2 className="text-slate-500 text-3xl text-center font-bold">
                 Customer Reviews
             </h2>
-            <h3 className="text-slate-600 text-xl text-center">
+            <h3 className="text-slate-500 text-xl text-center">
                 4.5 out of 87 reviews
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
                 {
                     reviews.map(review => <Review key={review._id} review={review}></Review>)
                 }
