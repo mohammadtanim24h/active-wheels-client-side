@@ -8,7 +8,7 @@ const Banner = () => {
                 <div className="max-w-3xl">
                     <h1 className="mb-5 text-4xl md:text-5xl font-bold">Active Wheels</h1>
                     <p className="mb-5 text-xl">
-                        Internationally approved parts manufacturer. We sell
+                        Internationally acclaimed parts manufacturer. We sell
                         quality parts with the best materials available at the
                         most reasonable price. With us You'll never drive alone.
                     </p>
