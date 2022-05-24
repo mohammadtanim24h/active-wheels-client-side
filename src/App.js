@@ -6,7 +6,8 @@ import Login from "./Pages/Login/Login";
 import Navbar from "./Pages/Shared/Navbar";
 import NotFound from "./Pages/Shared/NotFound";
 import SignUp from "./Pages/SignUp/SignUp";
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
+import Purchase from "./Pages/Purchase/Purchase";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/about" element={<About></About>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>
+                <Route path="/purchase/:id" element={<Purchase></Purchase>}></Route>
                 <Route path="*" element={<NotFound></NotFound>}></Route>
             </Routes>
             <Toaster></Toaster>
