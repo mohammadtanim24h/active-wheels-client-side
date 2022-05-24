@@ -46,12 +46,12 @@ const Login = () => {
 
                             <label className="label">
                                 {errors.email?.type === "required" && (
-                                    <span className="text-red-500">
+                                    <span className="label-text text-red-500">
                                         {errors.email.message}
                                     </span>
                                 )}
                                 {errors.email?.type === "pattern" && (
-                                    <span className="text-red-500">
+                                    <span className="label-text text-red-500">
                                         {errors.email.message}
                                     </span>
                                 )}
@@ -82,12 +82,12 @@ const Login = () => {
 
                             <label className="label">
                                 {errors.password?.type === "required" && (
-                                    <span className="text-red-500">
+                                    <span className="label-text text-red-500">
                                         {errors.password.message}
                                     </span>
                                 )}
                                 {errors.password?.type === "minLength" && (
-                                    <span className="text-red-500">
+                                    <span className="label-text text-red-500">
                                         {errors.password.message}
                                     </span>
                                 )}
@@ -107,7 +107,7 @@ const Login = () => {
                         </Link>{" "}
                         now!
                     </p>
-                    
+
                     <div className="divider">OR</div>
 
                     {googleError && (
