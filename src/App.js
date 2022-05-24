@@ -8,6 +8,7 @@ import NotFound from "./Pages/Shared/NotFound";
 import SignUp from "./Pages/SignUp/SignUp";
 import { Toaster } from "react-hot-toast";
 import Purchase from "./Pages/Purchase/Purchase";
+import RequireAuth from "./Pages/Shared/RequireAuth";
 
 function App() {
     return (
@@ -18,7 +19,14 @@ function App() {
                 <Route path="/about" element={<About></About>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>
-                <Route path="/purchase/:id" element={<Purchase></Purchase>}></Route>
+                <Route
+                    path="/purchase/:id"
+                    element={
+                        <RequireAuth>
+                            <Purchase></Purchase>
+                        </RequireAuth>
+                    }
+                ></Route>
                 <Route path="*" element={<NotFound></NotFound>}></Route>
             </Routes>
             <Toaster></Toaster>
