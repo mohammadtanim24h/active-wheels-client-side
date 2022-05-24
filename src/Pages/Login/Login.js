@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import auth from "../../Firebase/firebase.init";
 import {
+    useSendPasswordResetEmail,
     useSignInWithEmailAndPassword,
     useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import googleLogo from "../../assets/images/icons8-google.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     // hook form
     const {
         register,
         formState: { errors },
         handleSubmit,
+        getValues,
     } = useForm();
 
     // sign in hook
@@ -28,6 +33,19 @@ const Login = () => {
     // google sign in
     const [signInWithGoogle, googleUser, googleLoading, googleError] =
         useSignInWithGoogle(auth);
+
+    // password reset hook
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const resetPassword = () => {
+        const email = getValues().email;
+        sendPasswordResetEmail(email);
+    };
+
+    useEffect(() => {
+        if (user || googleUser) {
+            navigate(from, { replace: true });
+        }
+    }, [user, googleUser]);
     return (
         <div className="flex justify-center items-center h-[80vh]">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -107,7 +125,20 @@ const Login = () => {
                                 )}
                             </label>
                         </div>
-
+                        <p className="text-sm ml-1">
+                            Forgot password?{" "}
+                            <span
+                                className="text-primary cursor-pointer"
+                                onClick={resetPassword}
+                            >
+                                Reset
+                            </span>
+                        </p>
+                        {error && (
+                            <p className="text-red-500 text-center">
+                                {error.message.slice(10)}
+                            </p>
+                        )}
                         <input
                             type="submit"
                             className="btn btn-primary mt-4 w-full text-white"

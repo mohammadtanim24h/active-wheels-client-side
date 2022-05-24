@@ -140,7 +140,7 @@ const SignUp = () => {
                                 )}
                             </label>
                         </div>
-
+                        {error && <p className="text-red-500 text-center">{error.message.slice(10, )}</p> }
                         <input
                             type="submit"
                             className="btn btn-primary mt-4 w-full text-white"
