@@ -18,7 +18,7 @@ const SignUp = () => {
         <div className="flex justify-center items-center h-[80vh]">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <div className="card-body">
-                    <h2 className="text-slate-500 text-2xl font-bold text-center mb-4">
+                    <h2 className="text-slate-500 text-2xl font-bold text-center mb-2">
                         Sign Up
                     </h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
