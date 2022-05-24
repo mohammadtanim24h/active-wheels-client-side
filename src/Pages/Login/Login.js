@@ -2,6 +2,8 @@ import React from "react";
 import auth from "../../Firebase/firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import googleLogo from "../../assets/images/icons8-google.png";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const {
@@ -98,15 +100,31 @@ const Login = () => {
                             value="Login"
                         />
                     </form>
+                    <p className="text-sm mt-3 text-center">
+                        New to Active Wheels?{" "}
+                        <Link className="text-primary" to="/signup">
+                            Sign Up
+                        </Link>{" "}
+                        now!
+                    </p>
+                    
                     <div className="divider">OR</div>
 
                     {googleError && (
-                        <p className="text-center text-red-500 mb-3">{googleError.message}</p>
+                        <p className="text-center text-red-500 mb-3">
+                            {googleError.message.slice(10)}
+                        </p>
                     )}
                     <button
                         onClick={() => signInWithGoogle()}
                         className="btn bg-white px-8 hover:bg-base-200 border-0 shadow-lg text-slate-500"
                     >
+                        <img
+                            width={36}
+                            className="mr-2"
+                            src={googleLogo}
+                            alt=""
+                        />
                         Sign in with google
                     </button>
                 </div>
