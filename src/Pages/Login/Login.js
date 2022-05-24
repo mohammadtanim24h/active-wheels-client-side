@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import googleLogo from "../../assets/images/icons8-google.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import Loading from "../Shared/Loading";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -52,6 +53,10 @@ const Login = () => {
             navigate(from, { replace: true });
         }
     }, [user, googleUser]);
+
+    if(loading) {
+        return <Loading></Loading>
+    }
     return (
         <div className="flex justify-center items-center h-[80vh]">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
