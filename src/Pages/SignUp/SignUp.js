@@ -2,6 +2,7 @@ import React from "react";
 import {
     useCreateUserWithEmailAndPassword,
     useSignInWithGoogle,
+    useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
@@ -16,6 +17,9 @@ const SignUp = () => {
         handleSubmit,
     } = useForm();
 
+    // update user profile hook
+    const [updateProfile, updating] = useUpdateProfile(auth);
+
     // firebase hook for creating user
     const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth, {
@@ -24,8 +28,8 @@ const SignUp = () => {
 
     // create user function
     const onSubmit = async (data) => {
-        console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
     };
 
     // Google sign in
