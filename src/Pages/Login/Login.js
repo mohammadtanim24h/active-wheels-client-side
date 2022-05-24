@@ -8,6 +8,7 @@ import {
 import { useForm } from "react-hook-form";
 import googleLogo from "../../assets/images/icons8-google.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -38,7 +39,12 @@ const Login = () => {
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const resetPassword = () => {
         const email = getValues().email;
-        sendPasswordResetEmail(email);
+        if(!email) {
+            toast.error("Please enter your email to reset password");
+        }
+        else {
+            sendPasswordResetEmail(email);
+        }
     };
 
     useEffect(() => {
