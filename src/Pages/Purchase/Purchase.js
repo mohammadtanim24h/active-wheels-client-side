@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
@@ -11,9 +11,14 @@ const Purchase = () => {
     const { data: part, isLoading } = useQuery(["part", id], () =>
         fetch(`http://localhost:5000/part/${id}`).then((res) => res.json())
     );
+    const [quantity, setQuantity] = useState(part?.minOrderQuantity);
     if (isLoading) {
         return <Loading></Loading>;
     }
+
+    const quantityChange = (e) => {
+        setQuantity(e.target.value);
+    };
     return (
         <div className="flex flex-col md:flex-row justify-around mt-8">
             <div className="card w-80 md:w-1/3 h-max bg-base-100 shadow-xl mx-auto md:mx-0">
@@ -84,9 +89,29 @@ const Purchase = () => {
                                 type="number"
                                 placeholder="Quantity"
                                 defaultValue={part.minOrderQuantity}
+                                onChange={quantityChange}
                                 className="input input-bordered w-full max-w-lg mb-1"
                             />
                         </div>
+                        {quantity < part.minOrderQuantity && (
+                            <p className="text-red-500 text-center mt-2">
+                                You cannot order less than minimum quantity
+                            </p>
+                        )}
+                        {quantity > part.availableQuantity && (
+                            <p className="text-red-500 text-center mt-2">
+                                You cannot order more than available quantity
+                            </p>
+                        )}
+                        <button
+                            disabled={
+                                quantity < part.minOrderQuantity ||
+                                quantity > part.availableQuantity
+                            }
+                            className="btn btn-primary text-white w-full mt-6"
+                        >
+                            Purchase
+                        </button>
                     </form>
                 </div>
             </div>
