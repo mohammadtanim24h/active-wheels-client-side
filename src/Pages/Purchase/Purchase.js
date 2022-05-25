@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import auth from "../../Firebase/firebase.init";
@@ -8,7 +9,7 @@ import Loading from "../Shared/Loading";
 const Purchase = () => {
     const { id } = useParams();
     const [user] = useAuthState(auth);
-    const { data: part, isLoading } = useQuery(["part", id], () =>
+    const { data: part, isLoading, refetch } = useQuery(["part", id], () =>
         fetch(`http://localhost:5000/part/${id}`).then((res) => res.json())
     );
     const [quantity, setQuantity] = useState(part?.minOrderQuantity);
@@ -43,7 +44,23 @@ const Purchase = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                if(data.insertedId) {
+                    fetch(`http://localhost:5000/update-part/${part._id}`, {
+                        method: "PUT",
+                        headers: {
+                            "content-type": "application/json",
+                        },
+                        body: JSON.stringify({availableQuantity: parseInt(part.availableQuantity) - parseInt(e.target.quantity.value)})
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.modifiedCount === 1) {
+                            e.target.reset();
+                            toast.success("Order placed successfully");
+                            refetch();
+                        }
+                    })
+                }
             });
     };
     return (
