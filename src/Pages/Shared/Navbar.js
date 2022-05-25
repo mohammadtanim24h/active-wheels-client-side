@@ -20,6 +20,11 @@ const Navbar = () => {
             <li>
                 <NavLink to="/contact">Contact</NavLink>
             </li>
+            {user && (
+                <li>
+                    <NavLink to="/dashboard">Dashboard</NavLink>
+                </li>
+            )}
             <li>
                 {user ? (
                     <button
@@ -65,9 +70,7 @@ const Navbar = () => {
                     <a className="btn btn-ghost normal-case text-xl">
                         ACTIVE WHEELS
                     </a>
-                    {
-                        user && <a>{user.displayName}</a>
-                    }
+                    {user && <a>{user.displayName}</a>}
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal p-0 gap-2">

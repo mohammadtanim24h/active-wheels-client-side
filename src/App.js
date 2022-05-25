@@ -9,6 +9,7 @@ import SignUp from "./Pages/SignUp/SignUp";
 import { Toaster } from "react-hot-toast";
 import Purchase from "./Pages/Purchase/Purchase";
 import RequireAuth from "./Pages/Shared/RequireAuth";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
     return (
@@ -24,6 +25,14 @@ function App() {
                     element={
                         <RequireAuth>
                             <Purchase></Purchase>
+                        </RequireAuth>
+                    }
+                ></Route>
+                <Route
+                    path="/dashboard"
+                    element={
+                        <RequireAuth>
+                            <Dashboard></Dashboard>
                         </RequireAuth>
                     }
                 ></Route>
