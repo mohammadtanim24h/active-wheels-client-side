@@ -66,12 +66,13 @@ const Navbar = () => {
                             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 gap-2"
                         >
                             {menuItems}
+                            {user && <p className="text-base p-3 bg-slate-600 text-white rounded-lg">{user.displayName}</p>}
                         </ul>
                     </div>
                     <a className="btn btn-ghost normal-case text-xl">
                         ACTIVE WHEELS
                     </a>
-                    {user && <a>{user.displayName}</a>}
+                    {user && <p className="text-base ml-2 hidden md:block">{user.displayName}</p>}
                     {pathname.includes("dashboard") && (
                         <label
                             htmlFor="dashboard-sidebar"
