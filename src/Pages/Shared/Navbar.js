@@ -1,11 +1,12 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import auth from "../../Firebase/firebase.init";
 import { signOut } from "firebase/auth";
 
 const Navbar = () => {
     const [user] = useAuthState(auth);
+    const { pathname } = useLocation();
     const menuItems = (
         <>
             <li>
@@ -71,6 +72,23 @@ const Navbar = () => {
                         ACTIVE WHEELS
                     </a>
                     {user && <a>{user.displayName}</a>}
+                    {pathname.includes("dashboard") && (
+                        <label
+                            htmlFor="dashboard-sidebar"
+                            className="btn btn-ghost drawer-button lg:hidden"
+                        >
+                            More
+                            <svg
+                                className="fill-current"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                            </svg>
+                        </label>
+                    )}
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal p-0 gap-2">
