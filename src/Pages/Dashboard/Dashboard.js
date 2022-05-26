@@ -29,22 +29,27 @@ const Dashboard = () => {
                             Dashboard
                         </h2>
                         <ProductInfo></ProductInfo>
-                        <ul className="mt-5">
-                            <li>
-                                <MdOutlineTipsAndUpdates className="inline-block mb-1"></MdOutlineTipsAndUpdates>{" "}
-                                Go to My Orders page to view and manage your
-                                orders
-                            </li>
-                            <li>
-                                <MdOutlineTipsAndUpdates className="inline-block mb-1"></MdOutlineTipsAndUpdates>{" "}
-                                Go to Add Review page and please post your
-                                feedback about us
-                            </li>
-                            <li>
-                                <MdOutlineTipsAndUpdates className="inline-block mb-1"></MdOutlineTipsAndUpdates>{" "}
-                                Go to My Profile page to update your profile
-                            </li>
-                        </ul>
+                        {!admin && (
+                            <>
+                                <ul className="mt-5">
+                                    <li>
+                                        <MdOutlineTipsAndUpdates className="inline-block mb-1"></MdOutlineTipsAndUpdates>{" "}
+                                        Go to My Orders page to view and manage
+                                        your orders
+                                    </li>
+                                    <li>
+                                        <MdOutlineTipsAndUpdates className="inline-block mb-1"></MdOutlineTipsAndUpdates>{" "}
+                                        Go to Add Review page and please post
+                                        your feedback about us
+                                    </li>
+                                    <li>
+                                        <MdOutlineTipsAndUpdates className="inline-block mb-1"></MdOutlineTipsAndUpdates>{" "}
+                                        Go to My Profile page to update your
+                                        profile
+                                    </li>
+                                </ul>
+                            </>
+                        )}
                     </div>
                 )}
                 <Outlet></Outlet>
