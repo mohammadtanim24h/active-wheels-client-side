@@ -34,16 +34,16 @@ const MyProfile = () => {
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
         fetch(url, {
             method: "POST",
-            body: formData
+            body: formData,
         })
-            .then(res => res.json())
-            .then(result => {
-                if(result.success) {
+            .then((res) => res.json())
+            .then((result) => {
+                if (result.success) {
                     const imageURL = result.data.url;
                     updateProfile({ photoURL: imageURL });
                     toast.success("Image uploaded successfully");
                 }
-            })
+            });
     };
 
     if (updating) {
@@ -65,7 +65,7 @@ const MyProfile = () => {
                         {user.emailVerified ? (
                             <MdVerifiedUser className="text-green-500 mb-1 inline-block"></MdVerifiedUser>
                         ) : (
-                            <span className="text-red-500">"X"</span>
+                            <span className="text-red-500 font-bold">X</span>
                         )}
                     </h2>
                     <h2 className="font-bold text-slate-500 mt-2 mb-3">
