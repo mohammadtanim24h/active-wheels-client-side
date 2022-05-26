@@ -1,10 +1,56 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const AddReview = () => {
-    const { register, handleSubmit } = useForm();
+    const imageStorageKey = "430227413d25713dc9257dcf7feacc7e";
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
-        console.log(data);
+        console.log("data", data);
+        const image = data.img[0];
+        const formData = new FormData();
+        formData.append("image", image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        fetch(url, {
+            method: "POST",
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                if (result.success) {
+                    const imageURL = result.data.url;
+                    const review = {
+                        name: data.name,
+                        rating: data.rating,
+                        reviewText: data.reviewText,
+                        img: imageURL,
+                    };
+                    fetch("http://localhost:5000/review", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json",
+                        },
+                        body: JSON.stringify(review),
+                    })
+                        .then((res) => res.json())
+                        .then((inserted) => {
+                            if (inserted.insertedId) {
+                                Swal.fire(
+                                    "Review added!",
+                                    "Your review is added successfully!",
+                                    "success"
+                                );
+                                reset();
+                            } else {
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Couldn't add your review",
+                                    text: "Something went wrong!",
+                                });
+                            }
+                        });
+                }
+            });
     };
     return (
         <div>
