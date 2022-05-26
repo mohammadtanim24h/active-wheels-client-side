@@ -5,8 +5,10 @@ import { MdVerifiedUser } from "react-icons/md";
 import defaultUserImg from "../../../assets/images/user.png";
 import toast from "react-hot-toast";
 import Loading from "../../Shared/Loading";
+import { useForm } from "react-hook-form";
 
 const MyProfile = () => {
+    const { register, handleSubmit } = useForm();
     const [user] = useAuthState(auth);
     // update name function
     const [updateProfile, updating, error] = useUpdateProfile(auth);
@@ -23,9 +25,26 @@ const MyProfile = () => {
         }
     };
 
-    const updateImage = e => {
-        e.preventDefault();
-    }
+    const imageStorageKey = "430227413d25713dc9257dcf7feacc7e";
+    // update image function
+    const onSubmit = (data) => {
+        const image = data.image[0];
+        const formData = new FormData();
+        formData.append("image", image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        fetch(url, {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(result => {
+                if(result.success) {
+                    const imageURL = result.data.url;
+                    updateProfile({ photoURL: imageURL });
+                    toast.success("Image uploaded successfully");
+                }
+            })
+    };
 
     if (updating) {
         return <Loading></Loading>;
@@ -77,8 +96,13 @@ const MyProfile = () => {
                     <h3 className="font-bold text-slate-500 mt-2 mb-3">
                         Upload new image
                     </h3>
-                    <form>
-                        <input type="file" className="block" />
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <input
+                            type="file"
+                            {...register("image")}
+                            name="image"
+                            className="block"
+                        />
                         <input
                             className="mt-4 btn btn-outline btn-primary block"
                             type="submit"
