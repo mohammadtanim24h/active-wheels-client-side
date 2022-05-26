@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     useCreateUserWithEmailAndPassword,
     useSignInWithGoogle,
     useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../Firebase/firebase.init";
 import googleLogo from "../../assets/images/icons8-google.png";
+import useToken from "../../hooks/useToken";
+import Loading from "../Shared/Loading";
 
 const SignUp = () => {
+    const navigate = useNavigate();
     // hook form
     const {
         register,
@@ -35,6 +38,19 @@ const SignUp = () => {
     // Google sign in
     const [signInWithGoogle, googleUser, googleLoading, googleError] =
         useSignInWithGoogle(auth);
+
+    const [token] = useToken(user || googleUser);
+
+    useEffect(() => {
+        if (token) {
+            navigate("/");
+        }
+    }, [token]);
+
+    if (loading || googleLoading) {
+        return <Loading></Loading>;
+    }
+
     return (
         <div className="flex justify-center items-center h-[80vh]">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -140,7 +156,11 @@ const SignUp = () => {
                                 )}
                             </label>
                         </div>
-                        {error && <p className="text-red-500 text-center">{error.message.slice(10, )}</p> }
+                        {error && (
+                            <p className="text-red-500 text-center">
+                                {error.message.slice(10)}
+                            </p>
+                        )}
                         <input
                             type="submit"
                             className="btn btn-primary mt-4 w-full text-white"
