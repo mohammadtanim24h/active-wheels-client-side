@@ -1,11 +1,35 @@
 import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useAuthState, useUpdateProfile } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase/firebase.init";
 import { MdVerifiedUser } from "react-icons/md";
 import defaultUserImg from "../../../assets/images/user.png";
+import toast from "react-hot-toast";
+import Loading from "../../Shared/Loading";
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
+    // update name function
+    const [updateProfile, updating, error] = useUpdateProfile(auth);
+    const updateName = async (e) => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        if (!name) {
+            toast.error("Please enter a name");
+            return;
+        } else {
+            await updateProfile({ displayName: name });
+            toast.success("Name Updated Successfully");
+            e.target.reset();
+        }
+    };
+
+    const updateImage = e => {
+        e.preventDefault();
+    }
+
+    if (updating) {
+        return <Loading></Loading>;
+    }
     return (
         <div>
             <h2 className="text-2xl md:text-3xl text-center md:text-left">
@@ -25,13 +49,24 @@ const MyProfile = () => {
                             <span className="text-red-500">"X"</span>
                         )}
                     </h2>
-                    <h2 className="font-bold text-slate-500 mt-2 mb-3">Update your name:</h2>
-                    <form>
-                        <input type="text" placeholder="Enter new Name" className="input input-bordered w-full max-w-xs mb-2" />
-                        <input type="submit" value="Update" className="btn btn-outline btn-primary w-full" />
+                    <h2 className="font-bold text-slate-500 mt-2 mb-3">
+                        Update your name:
+                    </h2>
+                    <form onSubmit={updateName}>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter new Name"
+                            className="input input-bordered w-full max-w-xs mb-2"
+                        />
+                        <input
+                            type="submit"
+                            value="Update"
+                            className="btn btn-outline btn-primary w-full"
+                        />
                     </form>
                 </div>
-                <div className="divider lg:divider-horizontal"></div> 
+                <div className="divider lg:divider-horizontal"></div>
                 <div className="avatar flex flex-col">
                     <div className="w-32 rounded-full">
                         <img
@@ -39,7 +74,9 @@ const MyProfile = () => {
                             alt=""
                         />
                     </div>
-                    <h3 className="font-bold text-slate-500 mt-2 mb-3">Upload new image</h3>
+                    <h3 className="font-bold text-slate-500 mt-2 mb-3">
+                        Upload new image
+                    </h3>
                     <form>
                         <input type="file" className="block" />
                         <input
