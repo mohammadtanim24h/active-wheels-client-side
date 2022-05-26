@@ -29,7 +29,10 @@ const Navbar = () => {
             <li>
                 {user ? (
                     <button
-                        onClick={() => signOut(auth)}
+                        onClick={() => {
+                            signOut(auth);
+                            localStorage.removeItem("accessToken");
+                        }}
                         className="btn btn-primary btn-outline"
                     >
                         Logout
