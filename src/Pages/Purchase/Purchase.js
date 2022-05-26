@@ -34,8 +34,8 @@ const Purchase = () => {
             phone: e.target.phone.value,
         };
 
-        // add orderInfo to db
-        fetch("http://localhost:5000/part", {
+        // add order in db
+        fetch("http://localhost:5000/order", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
