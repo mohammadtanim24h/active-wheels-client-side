@@ -1,12 +1,56 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const AddPart = () => {
     const imageStorageKey = "430227413d25713dc9257dcf7feacc7e";
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
-        
-        console.log(data);
+        const image = data.img[0];
+        const formData = new FormData();
+        formData.append("image", image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        fetch(url, {
+            method: "POST",
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                if (result.success) {
+                    const imgURL = result.data.url;
+                    const part = {
+                        name: data.name,
+                        price: data.price,
+                        description: data.description,
+                        minOrderQuantity: data.minOrderQuantity,
+                        availableQuantity: data.availableQuantity,
+                        img: imgURL,
+                    };
+                    fetch("http://localhost:5000/part", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json",
+                            authorization: `Bearer ${localStorage.getItem(
+                                "accessToken"
+                            )}`,
+                        },
+                        body: JSON.stringify(part),
+                    })
+                        .then((res) => res.json())
+                        .then((inserted) => {
+                            if (inserted.insertedId) {
+                                Swal.fire(
+                                    "Part added!",
+                                    "Part is added successfully!",
+                                    "success"
+                                );
+                                reset();
+                            } else {
+                                
+                            }
+                        });
+                }
+            });
     };
     return (
         <div>
