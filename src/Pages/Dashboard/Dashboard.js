@@ -84,6 +84,26 @@ const Dashboard = () => {
                             My Profile
                         </Link>
                     </li>
+                    {admin && (
+                        <>
+                            <li>
+                                <Link
+                                    to="add-part"
+                                    className="bg-white hover:bg-slate-100"
+                                >
+                                    Add Part
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="make-admin"
+                                    className="bg-white hover:bg-slate-100"
+                                >
+                                    Make Admin
+                                </Link>
+                            </li>
+                        </>
+                    )}
                 </ul>
             </div>
         </div>
