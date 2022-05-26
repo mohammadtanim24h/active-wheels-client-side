@@ -28,9 +28,8 @@ const MyOrders = () => {
                 signOut(auth);
                 localStorage.removeItem("accessToken");
                 navigate("/");
-            } else {
-                return res.json();
             }
+            return res.json();
         })
     );
 
@@ -59,14 +58,15 @@ const MyOrders = () => {
                         </thead>
                         <tbody>
                             {/* <!-- row --> */}
-                            {orders.map((order, index) => (
-                                <OrderRow
-                                    index={index}
-                                    key={order._id}
-                                    order={order}
-                                    refetch={refetch}
-                                ></OrderRow>
-                            ))}
+                            {Array.isArray(orders) &&
+                                orders.map((order, index) => (
+                                    <OrderRow
+                                        index={index}
+                                        key={order._id}
+                                        order={order}
+                                        refetch={refetch}
+                                    ></OrderRow>
+                                ))}
                         </tbody>
                     </table>
                 </div>
