@@ -10,6 +10,7 @@ import googleLogo from "../../assets/images/icons8-google.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Loading from "../Shared/Loading";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -40,22 +41,23 @@ const Login = () => {
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const resetPassword = () => {
         const email = getValues().email;
-        if(!email) {
+        if (!email) {
             toast.error("Please enter your email to reset password");
-        }
-        else {
+        } else {
             sendPasswordResetEmail(email);
         }
     };
 
+    const [token] = useToken(user || googleUser);
+
     useEffect(() => {
-        if (user || googleUser) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user, googleUser]);
+    }, [token]);
 
-    if(loading) {
-        return <Loading></Loading>
+    if (loading) {
+        return <Loading></Loading>;
     }
     return (
         <div className="flex justify-center items-center h-[80vh]">
