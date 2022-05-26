@@ -8,7 +8,7 @@ const ProductInfo = () => {
     return (
         <div className="mt-4">
             <div>
-                <div className="stats bg-primary text-primary-content">
+                <div className="stats stats-vertical lg:stats-horizontal bg-primary text-primary-content">
                     <div className="stat">
                         <div className="stat-title text-white">
                             Available Parts

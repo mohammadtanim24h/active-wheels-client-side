@@ -12,7 +12,7 @@ const Dashboard = () => {
                 type="checkbox"
                 className="drawer-toggle"
             />
-            <div className="drawer-content">
+            <div className="drawer-content px-4">
                 {/* <!-- Page content here --> */}
                 {pathname === "/dashboard" && (
                     <div>
@@ -45,16 +45,16 @@ const Dashboard = () => {
                     htmlFor="dashboard-sidebar"
                     className="drawer-overlay"
                 ></label>
-                <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content gap-y-2">
+                <ul className="menu p-4 overflow-y-auto w-80 bg-slate-500 rounded-lg gap-y-2">
                     {/* <!-- Sidebar content here --> */}
                     <li>
-                        <Link to="my-orders">My Orders</Link>
+                        <Link to="my-orders" className="bg-white hover:bg-slate-100">My Orders</Link>
                     </li>
                     <li>
-                        <Link to="add-review">Add Review</Link>
+                        <Link to="add-review" className="bg-white hover:bg-slate-100">Add Review</Link>
                     </li>
                     <li>
-                        <Link to="my-profile">My Profile</Link>
+                        <Link to="my-profile" className="bg-white hover:bg-slate-100">My Profile</Link>
                     </li>
                 </ul>
             </div>
