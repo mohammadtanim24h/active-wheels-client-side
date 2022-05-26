@@ -1,9 +1,10 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
 import ProductInfo from "./ProductInfo";
 
 const Dashboard = () => {
+    const { pathname } = useLocation();
     return (
         <div className="drawer drawer-mobile">
             <input
@@ -13,27 +14,30 @@ const Dashboard = () => {
             />
             <div className="drawer-content">
                 {/* <!-- Page content here --> */}
-                <div>
-                    <h2 className="text-2xl border-b-2 border-blue-500 inline-block">
-                        Dashboard
-                    </h2>
-                    <ProductInfo></ProductInfo>
-                    <ul className="mt-5">
-                        <li>
-                            <MdOutlineTipsAndUpdates className="inline-block mb-1"></MdOutlineTipsAndUpdates>{" "}
-                            Go to My Orders page to view and manage your orders
-                        </li>
-                        <li>
-                            <MdOutlineTipsAndUpdates className="inline-block mb-1"></MdOutlineTipsAndUpdates>{" "}
-                            Go to Add Review page and please post your feedback
-                            about us
-                        </li>
-                        <li>
-                            <MdOutlineTipsAndUpdates className="inline-block mb-1"></MdOutlineTipsAndUpdates>{" "}
-                            Go to My Profile page to update your profile
-                        </li>
-                    </ul>
-                </div>
+                {pathname === "/dashboard" && (
+                    <div>
+                        <h2 className="text-2xl border-b-2 border-blue-500 inline-block">
+                            Dashboard
+                        </h2>
+                        <ProductInfo></ProductInfo>
+                        <ul className="mt-5">
+                            <li>
+                                <MdOutlineTipsAndUpdates className="inline-block mb-1"></MdOutlineTipsAndUpdates>{" "}
+                                Go to My Orders page to view and manage your
+                                orders
+                            </li>
+                            <li>
+                                <MdOutlineTipsAndUpdates className="inline-block mb-1"></MdOutlineTipsAndUpdates>{" "}
+                                Go to Add Review page and please post your
+                                feedback about us
+                            </li>
+                            <li>
+                                <MdOutlineTipsAndUpdates className="inline-block mb-1"></MdOutlineTipsAndUpdates>{" "}
+                                Go to My Profile page to update your profile
+                            </li>
+                        </ul>
+                    </div>
+                )}
                 <Outlet></Outlet>
             </div>
             <div className="drawer-side">
