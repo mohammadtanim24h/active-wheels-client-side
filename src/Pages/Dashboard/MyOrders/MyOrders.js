@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase/firebase.init";
+import OrderRow from "./OrderRow/OrderRow";
 
 const MyOrders = () => {
     const [user] = useAuthState(auth);
@@ -17,8 +18,8 @@ const MyOrders = () => {
                 My Orders
             </h2>
             <div className="mt-4">
-                <div class="overflow-x-auto">
-                    <table class="table w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
                         {/* <!-- head --> */}
                         <thead>
                             <tr>
@@ -27,17 +28,18 @@ const MyOrders = () => {
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Address</th>
+                                <th>Manage</th>
                             </tr>
                         </thead>
                         <tbody>
                             {/* <!-- row --> */}
-                            <tr>
-                                <th>1</th>
-                                <td>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td>Blue</td>
-                                <td>Hello</td>
-                            </tr>
+                            {orders.map((order, index) => (
+                                <OrderRow
+                                    index={index}
+                                    key={order._id}
+                                    order={order}
+                                ></OrderRow>
+                            ))}
                         </tbody>
                     </table>
                 </div>
