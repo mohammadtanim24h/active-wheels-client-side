@@ -54,7 +54,7 @@ const AddReview = () => {
     };
     return (
         <div>
-            <h2 className="text-2xl md:text-3xl text-slate-600 text-center  ml-1">
+            <h2 className="text-2xl md:text-3xl text-slate-600 text-center">
                 Add a review
             </h2>
             <div className="card w-80 md:w-96 bg-base-100 shadow-xl mx-auto">
@@ -81,6 +81,7 @@ const AddReview = () => {
                             className="w-full max-w-xs textarea textarea-bordered"
                             rows="3"
                             {...register("reviewText")}
+                            required
                         ></textarea>
                         <p className="text-base ml-1 text-slate-600 mb-1">
                             Your Image
