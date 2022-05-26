@@ -16,7 +16,7 @@ const Dashboard = () => {
                 {/* <!-- Page content here --> */}
                 {pathname === "/dashboard" && (
                     <div>
-                        <h2 className="text-2xl border-b-2 border-blue-500 inline-block">
+                        <h2 className="text-3xl border-b-2 border-blue-500 inline-block">
                             Dashboard
                         </h2>
                         <ProductInfo></ProductInfo>
