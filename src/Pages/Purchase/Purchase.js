@@ -69,7 +69,7 @@ const Purchase = () => {
                 <img src={part.img} alt="" />
                 <div className="card-body">
                     <h2 className="card-title">{part.name}</h2>
-                    <p>Price: ${part.price}</p>
+                    <p>Price: ${part.price} ( per piece )</p>
                     <p>{part.description}</p>
                     <p>Minimum Quantity: {part.minOrderQuantity}</p>
                     <p>Available Quantity: {part.availableQuantity}</p>
