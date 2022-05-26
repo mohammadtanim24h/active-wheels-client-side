@@ -22,7 +22,7 @@ const MyOrders = () => {
 
     return (
         <div>
-            <h2 className="text-2xl md:text-3xl text-slate-600 text-center md:text-left">
+            <h2 className="text-2xl md:text-3xl text-slate-600 text-center md:text-left mt-2">
                 My Orders
             </h2>
             <div className="mt-4">
