@@ -46,7 +46,11 @@ const AddPart = () => {
                                 );
                                 reset();
                             } else {
-                                
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Couldn't add your part",
+                                    text: "Something went wrong!",
+                                });
                             }
                         });
                 }
