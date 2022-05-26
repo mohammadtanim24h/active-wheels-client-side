@@ -25,7 +25,7 @@ const AddReview = () => {
                         reviewText: data.reviewText,
                         img: imageURL,
                     };
-                    fetch("http://localhost:5000/review", {
+                    fetch("https://pacific-headland-20365.herokuapp.com/review", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

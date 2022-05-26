@@ -10,7 +10,7 @@ const Purchase = () => {
     const { id } = useParams();
     const [user] = useAuthState(auth);
     const { data: part, isLoading, refetch } = useQuery(["part", id], () =>
-        fetch(`http://localhost:5000/part/${id}`).then((res) => res.json())
+        fetch(`https://pacific-headland-20365.herokuapp.com/part/${id}`).then((res) => res.json())
     );
     const [quantity, setQuantity] = useState(part?.minOrderQuantity);
     if (isLoading) {
@@ -35,7 +35,7 @@ const Purchase = () => {
         };
 
         // add order in db
-        fetch("http://localhost:5000/order", {
+        fetch("https://pacific-headland-20365.herokuapp.com/order", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -45,7 +45,7 @@ const Purchase = () => {
             .then((res) => res.json())
             .then((data) => {
                 if(data.insertedId) {
-                    fetch(`http://localhost:5000/update-part/${part._id}`, {
+                    fetch(`https://pacific-headland-20365.herokuapp.com/update-part/${part._id}`, {
                         method: "PUT",
                         headers: {
                             "content-type": "application/json",

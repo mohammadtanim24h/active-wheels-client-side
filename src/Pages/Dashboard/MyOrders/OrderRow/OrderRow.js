@@ -16,7 +16,7 @@ const OrderRow = ({ order, index, refetch }) => {
             cancelButtonText: "Back Off",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/order/${id}`, {
+                fetch(`https://pacific-headland-20365.herokuapp.com/order/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())
