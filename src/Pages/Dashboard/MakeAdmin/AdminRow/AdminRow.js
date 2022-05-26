@@ -1,7 +1,11 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import auth from "../../../../Firebase/firebase.init";
 
 const AdminRow = ({ user, index, refetch }) => {
+    const navigate = useNavigate();
     const makeAdmin = () => {
         fetch(`http://localhost:5000/make-admin/${user.email}`, {
             method: "PUT",
@@ -9,11 +13,19 @@ const AdminRow = ({ user, index, refetch }) => {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
         })
-            .then((res) => res.json())
+            .then((res) => {
+                if (res.status === 401 || res.status === 403) {
+                    toast.error("Forbidden access!");
+                    signOut(auth);
+                    localStorage.removeItem("accessToken");
+                    navigate("/");
+                }
+                return res.json();
+            })
             .then((data) => {
                 if (data.modifiedCount === 1) {
-                    toast.success(`Successfully Made ${user.email} an admin`);
                     refetch();
+                    toast.success(`Successfully Made ${user.email} an admin`);
                 }
             });
     };
