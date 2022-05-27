@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading";
+import PartRow from "./PartRow/PartRow";
 
 const ManageParts = () => {
     const {
@@ -26,17 +27,22 @@ const ManageParts = () => {
                         <tr>
                             <th></th>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Price</th>
+                            <th>Minimum Order</th>
+                            <th>Available</th>
+                            <th>Manage</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Blue</td>
-                        </tr>
+                        {Array.isArray(parts) &&
+                            parts.map((part, index) => (
+                                <PartRow
+                                    part={part}
+                                    key={part._id}
+                                    index={index}
+                                    refetch={refetch}
+                                ></PartRow>
+                            ))}
                     </tbody>
                 </table>
             </div>
