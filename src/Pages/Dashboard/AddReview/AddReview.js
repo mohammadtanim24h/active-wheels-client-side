@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import Loading from "../../Shared/Loading";
 
 const AddReview = () => {
     const imageStorageKey = "430227413d25713dc9257dcf7feacc7e";
     const { register, handleSubmit, reset } = useForm();
+    const [loading, setLoading] = useState(false);
     const onSubmit = (data) => {
-        console.log("data", data);
+        setLoading(true);
         const image = data.img[0];
         const formData = new FormData();
         formData.append("image", image);
@@ -25,13 +27,16 @@ const AddReview = () => {
                         reviewText: data.reviewText,
                         img: imageURL,
                     };
-                    fetch("https://pacific-headland-20365.herokuapp.com/review", {
-                        method: "POST",
-                        headers: {
-                            "content-type": "application/json",
-                        },
-                        body: JSON.stringify(review),
-                    })
+                    fetch(
+                        "https://pacific-headland-20365.herokuapp.com/review",
+                        {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json",
+                            },
+                            body: JSON.stringify(review),
+                        }
+                    )
                         .then((res) => res.json())
                         .then((inserted) => {
                             if (inserted.insertedId) {
@@ -40,8 +45,10 @@ const AddReview = () => {
                                     "Your review is added successfully!",
                                     "success"
                                 );
+                                setLoading(false);
                                 reset();
                             } else {
+                                setLoading(false);
                                 Swal.fire({
                                     icon: "error",
                                     title: "Couldn't add your review",
@@ -52,6 +59,11 @@ const AddReview = () => {
                 }
             });
     };
+
+    if (loading) {
+        return <Loading></Loading>;
+    }
+
     return (
         <div>
             <h2 className="text-2xl md:text-3xl text-slate-600 text-center">

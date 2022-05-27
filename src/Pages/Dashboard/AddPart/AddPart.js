@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import Loading from "../../Shared/Loading";
 
 const AddPart = () => {
     const imageStorageKey = "430227413d25713dc9257dcf7feacc7e";
     const { register, handleSubmit, reset } = useForm();
+    const [dataLoading, setDataLoading] = useState(false);
     const onSubmit = (data) => {
+        setDataLoading(true);
         const image = data.img[0];
         const formData = new FormData();
         formData.append("image", image);
@@ -44,8 +47,10 @@ const AddPart = () => {
                                     "Part is added successfully!",
                                     "success"
                                 );
+                                setDataLoading(false);
                                 reset();
                             } else {
+                                setDataLoading(false);
                                 Swal.fire({
                                     icon: "error",
                                     title: "Couldn't add your part",
@@ -56,6 +61,10 @@ const AddPart = () => {
                 }
             });
     };
+
+    if (dataLoading) {
+        return <Loading></Loading>;
+    }
     return (
         <div>
             <h2 className="text-2xl md:text-3xl text-slate-600 text-center mt-2">

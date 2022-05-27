@@ -169,7 +169,7 @@ const MyProfile = () => {
             {/* additional info */}
             <div className="mt-6 flex flex-col-reverse md:flex-row-reverse justify-around rounded-lg border border-slate-200 w-full md:w-3/5 p-4">
                 <div>
-                    <h3>{}</h3>
+                    <h3>{user.education}</h3>
                 </div>
             </div>
         </div>
