@@ -15,6 +15,7 @@ import MyProfile from "./Pages/Dashboard/MyProfile/MyProfile";
 import AddReview from "./Pages/Dashboard/AddReview/AddReview";
 import AddPart from "./Pages/Dashboard/AddPart/AddPart";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
+import Blogs from "./Pages/Blogs/Blogs";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/about" element={<About></About>}></Route>
+                <Route path="/blogs" element={<Blogs></Blogs>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>
                 <Route
