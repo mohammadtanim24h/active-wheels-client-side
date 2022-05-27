@@ -8,6 +8,7 @@ import Loading from "../../Shared/Loading";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
+import { MdOutlineUpdate } from "react-icons/md";
 
 const MyProfile = () => {
     const navigate = useNavigate();
@@ -211,7 +212,7 @@ const MyProfile = () => {
                         : "Please Provide your linkedin account link"}
                 </h2>
                 <button onClick={() => navigate("/update-additional-info")} className="btn btn-primary mt-4 md:mt-0 text-white md:absolute md:top-0 md:right-0 md:rounded-none md:rounded-bl-md">
-                    Update Additional Info
+                    Update Additional Info <MdOutlineUpdate className="ml-1 text-lg"></MdOutlineUpdate>
                 </button>
             </div>
         </div>

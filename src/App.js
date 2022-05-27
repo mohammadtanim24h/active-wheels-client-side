@@ -19,6 +19,7 @@ import Blogs from "./Pages/Blogs/Blogs";
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 import ManageParts from "./Pages/Dashboard/ManageParts/ManageParts";
 import UpdateAdditionalInfo from "./Pages/Dashboard/MyProfile/UpdateAdditionalInfo/UpdateAdditionalInfo";
+import RequireAdmin from "./Pages/Shared/RequireAdmin";
 
 function App() {
     return (
@@ -72,15 +73,27 @@ function App() {
                     ></Route>
                     <Route
                         path="add-part"
-                        element={<AddPart></AddPart>}
+                        element={
+                            <RequireAdmin>
+                                <AddPart></AddPart>
+                            </RequireAdmin>
+                        }
                     ></Route>
                     <Route
                         path="manage-parts"
-                        element={<ManageParts></ManageParts>}
+                        element={
+                            <RequireAdmin>
+                                <ManageParts></ManageParts>
+                            </RequireAdmin>
+                        }
                     ></Route>
                     <Route
                         path="make-admin"
-                        element={<MakeAdmin></MakeAdmin>}
+                        element={
+                            <RequireAdmin>
+                                <MakeAdmin></MakeAdmin>
+                            </RequireAdmin>
+                        }
                     ></Route>
                 </Route>
                 <Route path="*" element={<NotFound></NotFound>}></Route>
