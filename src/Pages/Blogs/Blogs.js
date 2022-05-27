@@ -30,11 +30,16 @@ const Blogs = () => {
                         application?
                     </h3>
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Suscipit, laboriosam odio molestiae dignissimos
-                        mollitia, eaque et optio accusantium nam, explicabo
-                        ipsum! Animi delectus aspernatur iure dignissimos
-                        debitis ut nemo asperiores.
+                        We can manage states in React Application in various
+                        ways. Redux is a popular solution that provides a
+                        central store that holds all states of our application.
+                        Each component can access the stored state without
+                        sending it from one component to another. It makes state
+                        management much easier. Additionally, we can use Redux
+                        actions and reducers to manage the state. We can also
+                        use React hooks to manage our application state.
+                        useReducer hook is a pure function with no side effects.
+                        It uses the same concept of reducers in redux.
                     </p>
                 </div>
                 <div className="shadow p-4 rounded-lg">
