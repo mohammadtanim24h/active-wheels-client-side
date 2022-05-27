@@ -17,6 +17,7 @@ import AddPart from "./Pages/Dashboard/AddPart/AddPart";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
 import Blogs from "./Pages/Blogs/Blogs";
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
+import ManageParts from "./Pages/Dashboard/ManageParts/ManageParts";
 
 function App() {
     return (
@@ -49,6 +50,7 @@ function App() {
                     <Route path="add-review" element={<AddReview></AddReview>}></Route>
                     <Route path="my-profile" element={<MyProfile></MyProfile>}></Route>
                     <Route path="add-part" element={<AddPart></AddPart>}></Route>
+                    <Route path="manage-parts" element={<ManageParts></ManageParts>}></Route>
                     <Route path="make-admin" element={<MakeAdmin></MakeAdmin>}></Route>
                 </Route>
                 <Route path="*" element={<NotFound></NotFound>}></Route>

@@ -59,7 +59,7 @@ const Dashboard = () => {
                     htmlFor="dashboard-sidebar"
                     className="drawer-overlay"
                 ></label>
-                <ul className="menu p-4 overflow-y-auto w-80 bg-slate-500 rounded-lg gap-y-2">
+                <ul className="menu p-4 overflow-y-auto w-80 bg-blue-500 rounded-lg gap-y-2">
                     {/* <!-- Sidebar content here --> */}
                     {!admin && (
                         <>
@@ -97,6 +97,14 @@ const Dashboard = () => {
                                     className="bg-white hover:bg-slate-100"
                                 >
                                     Add Part
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="manage-parts"
+                                    className="bg-white hover:bg-slate-100"
+                                >
+                                    Manage Parts
                                 </Link>
                             </li>
                             <li>
