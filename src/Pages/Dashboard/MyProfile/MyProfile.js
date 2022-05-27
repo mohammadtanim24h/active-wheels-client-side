@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuthState, useUpdateProfile } from "react-firebase-hooks/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase/firebase.init";
 import { MdVerifiedUser } from "react-icons/md";
 import defaultUserImg from "../../../assets/images/user.png";
@@ -11,7 +11,6 @@ const MyProfile = () => {
     const { register, handleSubmit } = useForm();
     const [user] = useAuthState(auth);
     // update name function
-    const [updateProfile, updating, error] = useUpdateProfile(auth);
     const updateName = async (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -19,9 +18,23 @@ const MyProfile = () => {
             toast.error("Please enter a name");
             return;
         } else {
-            await updateProfile({ displayName: name });
-            toast.success("Name Updated Successfully");
-            e.target.reset();
+            fetch(`http://localhost:5000/update-user-info/${user?.email}`, {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json",
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+                body: JSON.stringify({ name }),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.modifiedCount === 1) {
+                        toast.success("Name Updated Successfully");
+                        e.target.reset();
+                    }
+                });
         }
     };
 
@@ -40,15 +53,29 @@ const MyProfile = () => {
             .then((result) => {
                 if (result.success) {
                     const imageURL = result.data.url;
-                    updateProfile({ photoURL: imageURL });
-                    toast.success("Image uploaded successfully");
+                    fetch(
+                        `http://localhost:5000/update-user-info/${user?.email}`,
+                        {
+                            method: "PUT",
+                            headers: {
+                                "content-type": "application/json",
+                                authorization: `Bearer ${localStorage.getItem(
+                                    "accessToken"
+                                )}`,
+                            },
+                            body: JSON.stringify({ img: imageURL }),
+                        }
+                    )
+                        .then((res) => res.json())
+                        .then((data) => {
+                            if (data.modifiedCount === 1) {
+                                toast.success("Image uploaded successfully");
+                            }
+                        });
                 }
             });
     };
 
-    if (updating) {
-        return <Loading></Loading>;
-    }
     return (
         <div>
             <h2 className="text-2xl md:text-3xl text-slate-600 text-center md:text-left mt-2 ml-1">
