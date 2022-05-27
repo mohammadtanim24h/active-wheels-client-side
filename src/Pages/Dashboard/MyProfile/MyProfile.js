@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase/firebase.init";
 import { MdVerifiedUser } from "react-icons/md";
@@ -11,7 +11,7 @@ import { useQuery } from "react-query";
 const MyProfile = () => {
     const { register, handleSubmit } = useForm();
     const [user] = useAuthState(auth);
-
+    const [dataLoading, setDataLoading] = useState(false);
     const {
         data: userInfo,
         isLoading,
@@ -27,6 +27,7 @@ const MyProfile = () => {
 
     // update name function
     const updateName = async (e) => {
+        setDataLoading(true);
         e.preventDefault();
         const name = e.target.name.value;
         if (!name) {
@@ -47,6 +48,7 @@ const MyProfile = () => {
                 .then((data) => {
                     if (data.modifiedCount === 1) {
                         refetch();
+                        setDataLoading(false);
                         toast.success("Name Updated Successfully");
                         e.target.reset();
                     }
@@ -57,6 +59,7 @@ const MyProfile = () => {
     const imageStorageKey = "430227413d25713dc9257dcf7feacc7e";
     // update image function
     const onSubmit = (data) => {
+        setDataLoading(true);
         const image = data.image[0];
         const formData = new FormData();
         formData.append("image", image);
@@ -86,6 +89,7 @@ const MyProfile = () => {
                         .then((data) => {
                             if (data.modifiedCount === 1) {
                                 refetch();
+                                setDataLoading(false);
                                 toast.success("Image uploaded successfully");
                             }
                         });
@@ -93,7 +97,7 @@ const MyProfile = () => {
             });
     };
 
-    if (isLoading) {
+    if (isLoading || dataLoading) {
         return <Loading></Loading>;
     }
 
