@@ -1,0 +1,12 @@
+.my-info {
+    background-image: url("../../assets/images/wickedbackground.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@media screen and (max-width: 768px) {
+    .my-info {
+        background-image: none;
+    }
+}
