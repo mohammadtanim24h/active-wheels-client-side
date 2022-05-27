@@ -6,10 +6,25 @@ import defaultUserImg from "../../../assets/images/user.png";
 import toast from "react-hot-toast";
 import Loading from "../../Shared/Loading";
 import { useForm } from "react-hook-form";
+import { useQuery } from "react-query";
 
 const MyProfile = () => {
     const { register, handleSubmit } = useForm();
     const [user] = useAuthState(auth);
+
+    const {
+        data: userInfo,
+        isLoading,
+        refetch,
+    } = useQuery("userinfo", () =>
+        fetch(`http://localhost:5000/user/${user?.email}`, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+        }).then((res) => res.json())
+    );
+
     // update name function
     const updateName = async (e) => {
         e.preventDefault();
@@ -31,6 +46,7 @@ const MyProfile = () => {
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.modifiedCount === 1) {
+                        refetch();
                         toast.success("Name Updated Successfully");
                         e.target.reset();
                     }
@@ -69,12 +85,17 @@ const MyProfile = () => {
                         .then((res) => res.json())
                         .then((data) => {
                             if (data.modifiedCount === 1) {
+                                refetch();
                                 toast.success("Image uploaded successfully");
                             }
                         });
                 }
             });
     };
+
+    if (isLoading) {
+        return <Loading></Loading>;
+    }
 
     return (
         <div>
@@ -84,7 +105,7 @@ const MyProfile = () => {
             <div className="mt-6 flex flex-col-reverse md:flex-row-reverse justify-around rounded-lg border border-slate-200 w-full md:w-3/5 p-4">
                 <div>
                     <h2 className="font-bold text-slate-500">Username:</h2>
-                    <h2 className="text-base">{user.displayName}</h2>
+                    <h2 className="text-base">{userInfo?.name || user.displayName}</h2>
                     <h2 className="font-bold text-slate-500">Email:</h2>
                     <h2 className="text-base">{user.email}</h2>
                     <h2>
@@ -116,7 +137,7 @@ const MyProfile = () => {
                 <div className="avatar flex flex-col">
                     <div className="w-32 rounded-full">
                         <img
-                            src={user.photoURL ? user.photoURL : defaultUserImg}
+                            src={userInfo.img ? userInfo.img : defaultUserImg}
                             alt=""
                         />
                     </div>
