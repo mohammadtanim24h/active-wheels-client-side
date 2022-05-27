@@ -103,17 +103,21 @@ const MyProfile = () => {
 
     return (
         <div>
-            <h2 className="text-2xl md:text-3xl text-slate-600 text-center md:text-left mt-2 ml-1">
+            <h2 className="text-2xl md:text-3xl text-slate-600 text-center mt-2">
                 Update your profile
             </h2>
-            <div className="mt-6 flex flex-col-reverse md:flex-row-reverse justify-around rounded-lg border border-slate-200 w-full md:w-3/5 p-4">
+            <div className="mt-6 flex flex-col-reverse md:flex-row-reverse justify-around rounded-lg border border-slate-200 w-full md:w-3/5 p-4 mx-0 md:mx-auto">
                 <div>
-                    <h2 className="font-bold text-slate-500">Username:</h2>
-                    <h2 className="text-base">
+                    <h2 className="text-base mt-3">
+                        <span className="font-bold text-slate-500">
+                            Username:{" "}
+                        </span>
                         {userInfo?.name || user.displayName}
                     </h2>
-                    <h2 className="font-bold text-slate-500">Email:</h2>
-                    <h2 className="text-base">{user.email}</h2>
+                    <h2 className="text-base">
+                        <span className="font-bold text-slate-500">Email:</span>{" "}
+                        {user.email}
+                    </h2>
                     <h2>
                         Email Verified{" "}
                         {user.emailVerified ? (
@@ -122,7 +126,13 @@ const MyProfile = () => {
                             <span className="text-red-500 font-bold">X</span>
                         )}
                     </h2>
-                    <h2 className="font-bold text-slate-500 mt-2 mb-3">
+                    <h2 className="mb-4">
+                        <span className="font-bold text-slate-500">Phone:</span>{" "}
+                        {userInfo?.phone
+                            ? userInfo?.phone
+                            : "Please Provide your phone"}
+                    </h2>
+                    <h2 className="font-bold text-slate-500 mb-2">
                         Update your name:
                     </h2>
                     <form onSubmit={updateName}>
@@ -167,10 +177,26 @@ const MyProfile = () => {
             </div>
 
             {/* additional info */}
-            <div className="mt-6 flex flex-col-reverse md:flex-row-reverse justify-around rounded-lg border border-slate-200 w-full md:w-3/5 p-4">
-                <div>
-                    <h3>{user.education}</h3>
-                </div>
+            <div className="mt-6 rounded-lg border border-slate-200 w-full md:w-3/5 p-4 mx-0 md:mx-auto">
+                <h3 className="text-slate-600 text-xl mb-2">
+                    Additional Info:{" "}
+                </h3>
+                <h3>
+                    <span className="font-bold text-slate-500 mt-2 mb-3">
+                        Education:
+                    </span>{" "}
+                    {userInfo?.education
+                        ? userInfo?.education
+                        : "Please provide your educational info."}
+                </h3>
+                <h3>
+                    <span className="font-bold text-slate-500 mt-2 mb-3">
+                        Address:
+                    </span>{" "}
+                    {userInfo?.address
+                        ? userInfo?.address
+                        : "Please provide your address."}
+                </h3>
             </div>
         </div>
     );
