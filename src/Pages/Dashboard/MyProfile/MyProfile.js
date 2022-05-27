@@ -126,12 +126,11 @@ const MyProfile = () => {
                             <span className="text-red-500 font-bold">X</span>
                         )}
                     </h2>
-                    <h2 className="mb-4">
-                        <span className="font-bold text-slate-500">Phone:</span>{" "}
-                        {userInfo?.phone
-                            ? userInfo?.phone
-                            : "Please Provide your phone"}
+                    <h2 className="mb-5">
+                        <span className="font-bold text-slate-500">Role:</span>{" "}
+                        {userInfo.role === "admin" ? "Admin" : "User"}
                     </h2>
+
                     <h2 className="font-bold text-slate-500 mb-2">
                         Update your name:
                     </h2>
@@ -197,6 +196,18 @@ const MyProfile = () => {
                         ? userInfo?.address
                         : "Please provide your address."}
                 </h3>
+                <h2>
+                    <span className="font-bold text-slate-500">Phone:</span>{" "}
+                    {userInfo?.phone
+                        ? userInfo?.phone
+                        : "Please Provide your phone"}
+                </h2>
+                <h2>
+                    <span className="font-bold text-slate-500">LinkedIn: </span>{" "}
+                    {userInfo?.linkedin
+                        ? userInfo?.linkedin
+                        : "Please Provide your linkedin account link"}
+                </h2>
             </div>
         </div>
     );
