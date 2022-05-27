@@ -47,11 +47,21 @@ const Blogs = () => {
                         How does prototypical inheritance work?
                     </h3>
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Suscipit, laboriosam odio molestiae dignissimos
-                        mollitia, eaque et optio accusantium nam, explicabo
-                        ipsum! Animi delectus aspernatur iure dignissimos
-                        debitis ut nemo asperiores.
+                        The Prototypal Inheritance is a feature in javascript
+                        used to add methods and properties in objects. It is a
+                        method by which an object can inherit the properties and
+                        methods of another object. Prototypal inheritance uses
+                        the concept of prototype chaining. In this chain, every
+                        object created contains prototype which points either to
+                        another object or null. The prototypical chain concept
+                        is used when searching our code. When we need to find a
+                        property in an object, it is first searched in the
+                        object, and if it is not found, it is then searched on
+                        that object's prototype, and so on. Thus, the entire
+                        prototype chain is traversed until the property is found
+                        or null is reached. Prototypal inheritance includes not
+                        only prototypes inheriting from other prototypes but
+                        also objects inheriting from prototypes.
                     </p>
                 </div>
                 <div className="shadow p-4 rounded-lg">
