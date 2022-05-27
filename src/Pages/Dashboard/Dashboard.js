@@ -1,11 +1,12 @@
 import React from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
 import ProductInfo from "./ProductInfo";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../Firebase/firebase.init";
 import useAdmin from "../../hooks/useAdmin";
 import Loading from "../Shared/Loading";
+import "./Dashboard.css";
 
 const Dashboard = () => {
     const { pathname } = useLocation();
@@ -54,66 +55,38 @@ const Dashboard = () => {
                 )}
                 <Outlet></Outlet>
             </div>
-            <div className="drawer-side">
+            <div className="drawer-side sidebar-ul">
                 <label
                     htmlFor="dashboard-sidebar"
                     className="drawer-overlay"
                 ></label>
-                <ul className="menu p-4 overflow-y-auto w-80 bg-blue-500 rounded-lg gap-y-2">
+                <ul className="menu p-4 overflow-y-auto w-80 bg-white md:bg-none rounded-lg gap-y-2">
                     {/* <!-- Sidebar content here --> */}
                     {!admin && (
                         <>
                             <li>
-                                <Link
-                                    to="my-orders"
-                                    className="bg-white hover:bg-slate-100"
-                                >
-                                    My Orders
-                                </Link>
+                                <NavLink to="my-orders">My Orders</NavLink>
                             </li>
                             <li>
-                                <Link
-                                    to="add-review"
-                                    className="bg-white hover:bg-slate-100"
-                                >
-                                    Add Review
-                                </Link>
+                                <NavLink to="add-review">Add Review</NavLink>
                             </li>
                         </>
                     )}
                     <li>
-                        <Link
-                            to="my-profile"
-                            className="bg-white hover:bg-slate-100"
-                        >
-                            My Profile
-                        </Link>
+                        <NavLink to="my-profile">My Profile</NavLink>
                     </li>
                     {admin && (
                         <>
                             <li>
-                                <Link
-                                    to="add-part"
-                                    className="bg-white hover:bg-slate-100"
-                                >
-                                    Add Part
-                                </Link>
+                                <NavLink to="add-part">Add Part</NavLink>
                             </li>
                             <li>
-                                <Link
-                                    to="manage-parts"
-                                    className="bg-white hover:bg-slate-100"
-                                >
+                                <NavLink to="manage-parts">
                                     Manage Parts
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link
-                                    to="make-admin"
-                                    className="bg-white hover:bg-slate-100"
-                                >
-                                    Make Admin
-                                </Link>
+                                <NavLink to="make-admin">Make Admin</NavLink>
                             </li>
                         </>
                     )}
