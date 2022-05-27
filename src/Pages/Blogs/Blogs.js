@@ -57,23 +57,28 @@ const Blogs = () => {
                         is used when searching our code. When we need to find a
                         property in an object, it is first searched in the
                         object, and if it is not found, it is then searched on
-                        that object's prototype, and so on. Thus, the entire
-                        prototype chain is traversed until the property is found
-                        or null is reached. Prototypal inheritance includes not
-                        only prototypes inheriting from other prototypes but
-                        also objects inheriting from prototypes.
+                        that object's prototype, and so on. It keeps going on
+                        until the property is found or null is reached. The
+                        prototypal inheritance includes not only prototypes
+                        inheriting from other prototypes but also objects
+                        inheriting from prototypes.
                     </p>
                 </div>
                 <div className="shadow p-4 rounded-lg">
                     <h3 className="text-2xl text-slate-700 mb-2">
-                        Why you do not set the state directly in React.{" "}
+                        Why you do not set the state directly in React?
                     </h3>
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Suscipit, laboriosam odio molestiae dignissimos
-                        mollitia, eaque et optio accusantium nam, explicabo
-                        ipsum! Animi delectus aspernatur iure dignissimos
-                        debitis ut nemo asperiores.
+                        We do not set the state directly in React to keep the
+                        state immutable. In a React application, when a state
+                        changes a lot of things happen in the background. If we
+                        mutate the state directly, it pollutes the previous
+                        state with our mutation. And thus, the comparison
+                        between the two states is affected. It also disrupts
+                        React's lifecycle methods. Mutating states can lead to
+                        bugs and abnormal behavior of a component. That's why we
+                        should always keep the state mutable and never set the
+                        state directly.
                     </p>
                 </div>
                 <div className="shadow p-4 rounded-lg">
