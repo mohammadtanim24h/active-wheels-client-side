@@ -2,8 +2,8 @@ import React from "react";
 
 const Blogs = () => {
     return (
-        <div>
-            <h2 className="text-3xl text-center mb-5">Blogs</h2>
+        <div className="my-5">
+            <h2 className="text-3xl text-center mb-5 text-slate-700">Blogs</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="shadow p-4 rounded-lg">
                     <h3 className="text-2xl text-slate-700 mb-2">
@@ -86,11 +86,16 @@ const Blogs = () => {
                         What is a unit test? Why should write unit tests?
                     </h3>
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Suscipit, laboriosam odio molestiae dignissimos
-                        mollitia, eaque et optio accusantium nam, explicabo
-                        ipsum! Animi delectus aspernatur iure dignissimos
-                        debitis ut nemo asperiores.
+                        A unit test is a way of testing a unit. It can be a line
+                        of code, a method, or a class. In a unit test, the unit
+                        we test is isolated and tested to see if it is working
+                        as it should. Because of its being isolated, we know
+                        when something is not right or is not working properly.
+                        We should write unit tests to thoroughly test our app.
+                        If we release an app without proper testing, we will
+                        have to keep fixing issues again and again. Unit test
+                        also simplifies the debugging process and makes
+                        development easier.
                     </p>
                 </div>
             </div>
