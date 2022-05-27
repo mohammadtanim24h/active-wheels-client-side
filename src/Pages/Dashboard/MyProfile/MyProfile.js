@@ -109,7 +109,9 @@ const MyProfile = () => {
             <div className="mt-6 flex flex-col-reverse md:flex-row-reverse justify-around rounded-lg border border-slate-200 w-full md:w-3/5 p-4">
                 <div>
                     <h2 className="font-bold text-slate-500">Username:</h2>
-                    <h2 className="text-base">{userInfo?.name || user.displayName}</h2>
+                    <h2 className="text-base">
+                        {userInfo?.name || user.displayName}
+                    </h2>
                     <h2 className="font-bold text-slate-500">Email:</h2>
                     <h2 className="text-base">{user.email}</h2>
                     <h2>
@@ -161,6 +163,13 @@ const MyProfile = () => {
                             value="upload"
                         />
                     </form>
+                </div>
+            </div>
+
+            {/* additional info */}
+            <div className="mt-6 flex flex-col-reverse md:flex-row-reverse justify-around rounded-lg border border-slate-200 w-full md:w-3/5 p-4">
+                <div>
+                    <h3>{}</h3>
                 </div>
             </div>
         </div>
