@@ -7,8 +7,10 @@ import toast from "react-hot-toast";
 import Loading from "../../Shared/Loading";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 
 const MyProfile = () => {
+    const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
     const [user] = useAuthState(auth);
     const [dataLoading, setDataLoading] = useState(false);
@@ -106,7 +108,7 @@ const MyProfile = () => {
             <h2 className="text-2xl md:text-3xl text-slate-600 text-center mt-2">
                 Update your profile
             </h2>
-            <div className="mt-6 flex flex-col-reverse md:flex-row-reverse justify-around rounded-lg border border-slate-200 w-full md:w-3/5 p-4 mx-0 md:mx-auto">
+            <div className="mt-6 flex flex-col-reverse md:flex-row-reverse justify-around rounded-lg border border-slate-200 w-full lg:w-3/5 p-4 mx-0 md:mx-auto">
                 <div>
                     <h2 className="text-base mt-3">
                         <span className="font-bold text-slate-500">
@@ -144,7 +146,7 @@ const MyProfile = () => {
                         <input
                             type="submit"
                             value="Update"
-                            className="btn btn-outline btn-primary w-full"
+                            className="btn btn-outline btn-primary w-full mt-1"
                         />
                     </form>
                 </div>
@@ -176,7 +178,7 @@ const MyProfile = () => {
             </div>
 
             {/* additional info */}
-            <div className="mt-6 rounded-lg border border-slate-200 w-full md:w-3/5 p-4 mx-0 md:mx-auto">
+            <div className="mt-6 rounded-lg border border-slate-200 w-full lg:w-3/5 p-4 mx-0 md:mx-auto relative">
                 <h3 className="text-slate-600 text-xl mb-2">
                     Additional Info:{" "}
                 </h3>
@@ -208,6 +210,9 @@ const MyProfile = () => {
                         ? userInfo?.linkedin
                         : "Please Provide your linkedin account link"}
                 </h2>
+                <button onClick={() => navigate("/update-additional-info")} className="btn btn-primary mt-4 md:mt-0 text-white md:absolute md:top-0 md:right-0 md:rounded-none md:rounded-bl-md">
+                    Update Additional Info
+                </button>
             </div>
         </div>
     );

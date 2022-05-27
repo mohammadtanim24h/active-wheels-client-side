@@ -18,6 +18,7 @@ import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
 import Blogs from "./Pages/Blogs/Blogs";
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 import ManageParts from "./Pages/Dashboard/ManageParts/ManageParts";
+import UpdateAdditionalInfo from "./Pages/Dashboard/MyProfile/UpdateAdditionalInfo/UpdateAdditionalInfo";
 
 function App() {
     return (
@@ -27,9 +28,20 @@ function App() {
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/about" element={<About></About>}></Route>
                 <Route path="/blogs" element={<Blogs></Blogs>}></Route>
-                <Route path="/my-portfolio" element={<MyPortfolio></MyPortfolio>}></Route>
+                <Route
+                    path="/my-portfolio"
+                    element={<MyPortfolio></MyPortfolio>}
+                ></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>
+                <Route
+                    path="/update-additional-info"
+                    element={
+                        <RequireAuth>
+                            <UpdateAdditionalInfo></UpdateAdditionalInfo>
+                        </RequireAuth>
+                    }
+                ></Route>
                 <Route
                     path="/purchase/:id"
                     element={
@@ -46,12 +58,30 @@ function App() {
                         </RequireAuth>
                     }
                 >
-                    <Route path="my-orders" element={<MyOrders></MyOrders>}></Route>
-                    <Route path="add-review" element={<AddReview></AddReview>}></Route>
-                    <Route path="my-profile" element={<MyProfile></MyProfile>}></Route>
-                    <Route path="add-part" element={<AddPart></AddPart>}></Route>
-                    <Route path="manage-parts" element={<ManageParts></ManageParts>}></Route>
-                    <Route path="make-admin" element={<MakeAdmin></MakeAdmin>}></Route>
+                    <Route
+                        path="my-orders"
+                        element={<MyOrders></MyOrders>}
+                    ></Route>
+                    <Route
+                        path="add-review"
+                        element={<AddReview></AddReview>}
+                    ></Route>
+                    <Route
+                        path="my-profile"
+                        element={<MyProfile></MyProfile>}
+                    ></Route>
+                    <Route
+                        path="add-part"
+                        element={<AddPart></AddPart>}
+                    ></Route>
+                    <Route
+                        path="manage-parts"
+                        element={<ManageParts></ManageParts>}
+                    ></Route>
+                    <Route
+                        path="make-admin"
+                        element={<MakeAdmin></MakeAdmin>}
+                    ></Route>
                 </Route>
                 <Route path="*" element={<NotFound></NotFound>}></Route>
             </Routes>
