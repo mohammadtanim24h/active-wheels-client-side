@@ -11,7 +11,7 @@ const CheckoutForm = ({ order }) => {
     const [clientSecret, setClientSecret] = useState("");
     const [transactionId, setTransactionId] = useState("");
 
-    const { price, quantity, clientName, email } = order;
+    const { _id, price, quantity, clientName, email } = order;
     useEffect(() => {
         fetch("http://localhost:5000/create-payment-intent", {
             method: "POST",
@@ -74,6 +74,26 @@ const CheckoutForm = ({ order }) => {
             toast.success("Payment Successful!");
             setTransactionId(paymentIntent.id);
             setSuccessMessage("Congrats! Your payment is completed.");
+
+            // update order in backend
+            fetch(`http://localhost:5000/order/${_id}`, {
+                method: "PATCH",
+                headers: {
+                    "content-type": "application/json",
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+                body: JSON.stringify({
+                    paid: true,
+                    transactionId: paymentIntent.id,
+                    status: "pending",
+                }),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                });
         }
     };
 

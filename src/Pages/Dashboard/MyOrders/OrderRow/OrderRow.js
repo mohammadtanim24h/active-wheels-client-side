@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const OrderRow = ({ order, index, refetch }) => {
-    const { _id, partName, price, quantity, address, paid } = order;
+    const { _id, partName, price, quantity, address, paid, transactionId } =
+        order;
     const cancelOrder = (id) => {
         Swal.fire({
             title: "Are you sure you want to cancel the order?",
@@ -52,14 +53,19 @@ const OrderRow = ({ order, index, refetch }) => {
                         </button>
                     </Link>
                 )}
-                {
-                    paid && <p className="text-green-500">Paid</p>
-                }
+                {paid && (
+                    <div>
+                        <p className="text-green-600 font-semibold">Paid</p>
+                        <p className="text-sm">Transaction ID:</p>
+                        <p className="text-sm">{transactionId}</p>
+                    </div>
+                )}
             </td>
             <td>
                 <button
                     onClick={() => cancelOrder(_id)}
                     className="btn btn-xs btn-error text-white"
+                    disabled={paid === true}
                 >
                     Cancel
                 </button>
