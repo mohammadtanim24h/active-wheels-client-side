@@ -25,7 +25,6 @@ const Payment = () => {
     if (isLoading) {
         return <Loading></Loading>;
     }
-    console.log(order);
 
     return (
         <div className="flex justify-around flex-col lg:flex-row-reverse gap-5 mt-12">
@@ -47,7 +46,7 @@ const Payment = () => {
             <div className="card w-80 md:w-2/5 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <Elements stripe={stripePromise}>
-                        <CheckoutForm />
+                        <CheckoutForm order={order} />
                     </Elements>
                 </div>
             </div>
