@@ -21,6 +21,7 @@ import ManageParts from "./Pages/Dashboard/ManageParts/ManageParts";
 import UpdateAdditionalInfo from "./Pages/Dashboard/MyProfile/UpdateAdditionalInfo/UpdateAdditionalInfo";
 import RequireAdmin from "./Pages/Shared/RequireAdmin";
 import ManageOrders from "./Pages/Dashboard/ManageOrders/ManageOrders";
+import Payment from "./Pages/Dashboard/Payment/Payment";
 
 function App() {
     return (
@@ -63,6 +64,10 @@ function App() {
                     <Route
                         path="my-orders"
                         element={<MyOrders></MyOrders>}
+                    ></Route>
+                    <Route
+                        path="payment/:id"
+                        element={<Payment></Payment>}
                     ></Route>
                     <Route
                         path="add-review"
