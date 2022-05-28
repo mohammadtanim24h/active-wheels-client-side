@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Active Wheels
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Here is the [Live Website Link](https://active-wheels.web.app/) to view it in your browser.
 
-## Available Scripts
+## Project Details
 
-In the project directory, you can run:
+* This is a website of a car parts manufacturing company. On this Website you can buy car parts and manage them if you are admin.
 
-### `npm start`
+* On the Homepage, there are several sections. There is a banner, some car parts that you can buy, Business Summary, Reviews, and more. If you click on the place order button you will be taken to the purchase page. From there you can choose your desired quantity and purchase the parts. Purchased parts will be saved on the database with your information.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* There is a Dashboard section. It has nested routing applied to it. Normal users will see three options there. My orders, Add Review, and My profile. My orders will hold information of all your orders. You can pay for your orders using a credit card. After paying the orders will be marked paid and you will be shown the Transaction Id. You can add a review in Add Review page. You can update your profile in My profile page.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Admins will see more options in the dashboard. They will see My profile, Add Part, Manage Parts, Make admin and Manage all orders. They can add a part to the website. Also, they can delete any part on the Manage parts page. They can make a user admin. Lastly, they can monitor all orders, ship them or cancel them.
 
-### `npm test`
+* Users can sign up and log in using email and password. Alternatively, they can log in using google sign in. Also, admin routes are protected. So, if a normal user tries to access routes, he will get logged out and his accessToken will be deleted.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* There is a My portfolio section with my information. Also, there is blog section with answers to some important questions.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Technologies used :
+* CSS Framework : Tailwind, DaisyUI
+* React Librarys :
+    1. React Router
+    2. React Query
+    3. React Firebase Hooks
+    4. React Icons
+    5. React Hot Toast
+    6. React Hook Form
+    7. Sweet Alert
