@@ -22,6 +22,11 @@ const OrderRow = ({ order, index, refetch }) => {
                     `https://pacific-headland-20365.herokuapp.com/order/${id}`,
                     {
                         method: "DELETE",
+                        headers: {
+                            authorization: `Bearer ${localStorage.getItem(
+                                "accessToken"
+                            )}`,
+                        },
                     }
                 )
                     .then((res) => res.json())
