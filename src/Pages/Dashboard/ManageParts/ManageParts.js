@@ -9,7 +9,7 @@ const ManageParts = () => {
         isLoading,
         refetch,
     } = useQuery("manageparts", () =>
-        fetch("http://localhost:5000/parts").then((res) => res.json())
+        fetch("https://pacific-headland-20365.herokuapp.com/parts").then((res) => res.json())
     );
 
     if (isLoading) {

@@ -18,7 +18,7 @@ const UpdateAdditionalInfo = () => {
             phone: e.target.phone.value,
             linkedin: e.target.linkedin.value,
         };
-        fetch(`http://localhost:5000/update-user-info/${user?.email}`, {
+        fetch(`https://pacific-headland-20365.herokuapp.com/update-user-info/${user?.email}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

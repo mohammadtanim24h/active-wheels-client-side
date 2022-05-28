@@ -20,7 +20,7 @@ const MyProfile = () => {
         isLoading,
         refetch,
     } = useQuery("userinfo", () =>
-        fetch(`http://localhost:5000/user/${user?.email}`, {
+        fetch(`https://pacific-headland-20365.herokuapp.com/user/${user?.email}`, {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -37,7 +37,7 @@ const MyProfile = () => {
             toast.error("Please enter a name");
             return;
         } else {
-            fetch(`http://localhost:5000/update-user-info/${user?.email}`, {
+            fetch(`https://pacific-headland-20365.herokuapp.com/update-user-info/${user?.email}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json",
@@ -76,7 +76,7 @@ const MyProfile = () => {
                 if (result.success) {
                     const imageURL = result.data.url;
                     fetch(
-                        `http://localhost:5000/update-user-info/${user?.email}`,
+                        `https://pacific-headland-20365.herokuapp.com/update-user-info/${user?.email}`,
                         {
                             method: "PUT",
                             headers: {

@@ -29,7 +29,7 @@ const AddPart = () => {
                         availableQuantity: data.availableQuantity,
                         img: imgURL,
                     };
-                    fetch("http://localhost:5000/part", {
+                    fetch("https://pacific-headland-20365.herokuapp.com/part", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

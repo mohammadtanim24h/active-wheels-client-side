@@ -7,7 +7,7 @@ import auth from "../../../../Firebase/firebase.init";
 const AdminRow = ({ user, index, refetch }) => {
     const navigate = useNavigate();
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/make-admin/${user.email}`, {
+        fetch(`https://pacific-headland-20365.herokuapp.com/make-admin/${user.email}`, {
             method: "PUT",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

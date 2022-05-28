@@ -7,7 +7,7 @@ const ManageRow = ({ index, order, refetch }) => {
 
     // ship an order
     const shipOrder = (id) => {
-        fetch(`http://localhost:5000/change-order-status/${id}`, {
+        fetch(`https://pacific-headland-20365.herokuapp.com/change-order-status/${id}`, {
             method: "PATCH",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

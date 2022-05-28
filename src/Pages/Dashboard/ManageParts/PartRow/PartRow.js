@@ -14,7 +14,7 @@ const PartRow = ({ part, index, refetch }) => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/part/${_id}`, {
+                fetch(`https://pacific-headland-20365.herokuapp.com/part/${_id}`, {
                     method: "DELETE",
                     headers: {
                         authorization: `Bearer ${localStorage.getItem(

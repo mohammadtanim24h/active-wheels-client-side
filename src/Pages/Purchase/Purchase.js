@@ -142,12 +142,12 @@ const Purchase = () => {
                                 className="input input-bordered w-full max-w-lg mb-1"
                             />
                         </div>
-                        {quantity < part.minOrderQuantity && (
+                        {quantity < parseInt(part.minOrderQuantity) && (
                             <p className="text-red-500 text-center mt-2">
                                 You cannot order less than minimum quantity
                             </p>
                         )}
-                        {quantity > part.availableQuantity && (
+                        {quantity > parseInt(part.availableQuantity) && (
                             <p className="text-red-500 text-center mt-2">
                                 You cannot order more than available quantity
                             </p>
@@ -155,8 +155,8 @@ const Purchase = () => {
                         <button
                             type="submit"
                             disabled={
-                                quantity < part.minOrderQuantity ||
-                                quantity > part.availableQuantity
+                                quantity < parseInt(part.minOrderQuantity) ||
+                                quantity > parseInt(part.availableQuantity)
                             }
                             className="btn btn-primary text-white w-full mt-6"
                         >
