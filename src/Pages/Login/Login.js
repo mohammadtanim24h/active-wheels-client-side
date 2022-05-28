@@ -148,7 +148,7 @@ const Login = () => {
                             </span>
                         </p>
                         {error && (
-                            <p className="text-red-500 text-center">
+                            <p className="text-red-500 text-center mt-2">
                                 {error.message.slice(10)}
                             </p>
                         )}
