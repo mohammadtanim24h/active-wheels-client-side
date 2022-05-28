@@ -1,8 +1,31 @@
 import React from "react";
+import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 const ManageRow = ({ index, order, refetch }) => {
-    const { _id, partName, price, quantity, paid } = order;
+    const { _id, partName, price, quantity, paid, status } = order;
+
+    // ship an order
+    const shipOrder = (id) => {
+        fetch(`http://localhost:5000/change-order-status/${id}`, {
+            method: "PATCH",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.modifiedCount === 1) {
+                    Swal.fire(
+                        "Shipped!",
+                        "The order has been shipped successfully.",
+                        "success"
+                    );
+                    refetch();
+                }
+            });
+    };
 
     // Cancel order
     const cancelOrder = (id) => {
@@ -59,10 +82,23 @@ const ManageRow = ({ index, order, refetch }) => {
             <td>
                 {paid ? (
                     <div>
-                        <p>Pending</p>
-                        <button className="btn btn-sm mt-1 bg-blue-500 hover:bg-blue-600 text-white outline-0 border-0 px-3">
-                            Ship
-                        </button>
+                        <p>
+                            {status === "approved" ? (
+                                <span className="font-bold text-blue-600">
+                                    Shipped
+                                </span>
+                            ) : (
+                                "Pending"
+                            )}
+                        </p>
+                        {status === "pending" && (
+                            <button
+                                onClick={() => shipOrder(_id)}
+                                className="btn btn-sm mt-1 bg-blue-500 hover:bg-blue-600 text-white outline-0 border-0 px-4"
+                            >
+                                Ship
+                            </button>
+                        )}
                     </div>
                 ) : (
                     <p>Yet to pay</p>
