@@ -15,8 +15,8 @@ const Review = ({ review }) => {
                     <h2 className="card-title">{name}</h2>
                     <p>
                         Rating: {rating}{" "}
-                        {[...Array(parseInt(rating))].map((rating) => (
-                            <AiFillStar className="inline mb-1 text-[#FFC400]"></AiFillStar>
+                        {[...Array(parseInt(rating))].map((rating, index) => (
+                            <AiFillStar key={index} className="inline mb-1 text-[#FFC400]"></AiFillStar>
                         ))}
                     </p>
                     <p>

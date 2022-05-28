@@ -20,6 +20,7 @@ import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 import ManageParts from "./Pages/Dashboard/ManageParts/ManageParts";
 import UpdateAdditionalInfo from "./Pages/Dashboard/MyProfile/UpdateAdditionalInfo/UpdateAdditionalInfo";
 import RequireAdmin from "./Pages/Shared/RequireAdmin";
+import ManageOrders from "./Pages/Dashboard/ManageOrders/ManageOrders";
 
 function App() {
     return (
@@ -92,6 +93,14 @@ function App() {
                         element={
                             <RequireAdmin>
                                 <MakeAdmin></MakeAdmin>
+                            </RequireAdmin>
+                        }
+                    ></Route>
+                    <Route
+                        path="manage-orders"
+                        element={
+                            <RequireAdmin>
+                                <ManageOrders></ManageOrders>
                             </RequireAdmin>
                         }
                     ></Route>

@@ -88,6 +88,9 @@ const Dashboard = () => {
                             <li>
                                 <NavLink to="make-admin">Make Admin</NavLink>
                             </li>
+                            <li>
+                                <NavLink to="manage-orders">Make All Orders</NavLink>
+                            </li>
                         </>
                     )}
                 </ul>
