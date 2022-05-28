@@ -28,7 +28,7 @@ const Payment = () => {
 
     return (
         <div className="flex justify-around flex-col lg:flex-row-reverse gap-5 mt-12">
-            <div className="card w-80 md:w-2/5 bg-base-100 shadow-xl">
+            <div className="card w-full md:w-2/5 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <p className="font-semibold text-blue-500">
                         Hello {order?.clientName}
@@ -43,7 +43,7 @@ const Payment = () => {
                     </h2>
                 </div>
             </div>
-            <div className="card w-80 md:w-2/5 bg-base-100 shadow-xl">
+            <div className="card w-full md:w-2/5 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <Elements stripe={stripePromise}>
                         <CheckoutForm order={order} />
