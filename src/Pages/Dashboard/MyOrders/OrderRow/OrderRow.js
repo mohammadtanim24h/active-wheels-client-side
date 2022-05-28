@@ -47,7 +47,7 @@ const OrderRow = ({ order, index, refetch }) => {
             <td>
                 {!paid && (
                     <Link to={`/dashboard/payment/${_id}`}>
-                        <button className="btn btn-xs bg-green-500 hover:bg-green-500 text-white outline-0 border-0 px-3">
+                        <button className="btn btn-xs bg-green-500 hover:bg-green-600 text-white outline-0 border-0 px-3">
                             Pay
                         </button>
                     </Link>
