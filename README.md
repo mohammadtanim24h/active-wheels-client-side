@@ -1,6 +1,6 @@
 # Active Wheels
 
-### To check admin role use: 
+### To check admin role login using: 
 ### Email: admin@gmail.com
 ### Password: 123456
 
