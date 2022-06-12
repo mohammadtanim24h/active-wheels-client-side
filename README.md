@@ -1,8 +1,8 @@
 # Active Wheels
 
-## To check admin role use: 
-### Email: 	admin@gmail.com
-### Password: 123456
+### To check admin role use: 
+#### Email: admin@gmail.com
+#### Password: 123456
 
 ### Here is the [Live Website Link](https://active-wheels.web.app/) to view it in your browser.
 
